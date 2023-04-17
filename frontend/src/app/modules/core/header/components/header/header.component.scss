@@ -1,0 +1,36 @@
+:host {
+  flex: 1;
+  .header-container {
+    flex: 1;
+    .header {
+      flex: 1;
+
+      .logo-container {
+        flex: 2;
+
+        img {
+          height: auto;
+          width: auto;
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+
+      .header-actions-container {
+        flex: 5;
+      }
+
+      .user-login-actions-container {
+        flex: 3;
+      }
+
+      .user-actions-container {
+        flex: 3;
+      }
+
+    }
+
+  }
+}
+
+

@@ -1,0 +1,32 @@
+@import "components/link";
+@import "components/buttons";
+@import "variables/variables";
+
+.flex {
+  display: flex;
+
+  &.justify-content-center {
+    justify-content: center;
+  }
+
+  &.flex-row {
+    flex-direction: row;
+  }
+
+  &.flex-column {
+    flex-direction: column;
+  }
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.text-secondary {
+  color: #6c757d;
+}
+
+div.flex {
+  box-sizing: border-box;
+}
+

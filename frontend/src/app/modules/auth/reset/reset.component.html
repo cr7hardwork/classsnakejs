@@ -1,0 +1,55 @@
+<div
+  class="container password-reset flex flex-column"
+  *ngIf="!(resetPasswordRequestSent || resetCodeVerification)"
+>
+  <div class="form-container">
+    <div class="auth-title flex justify-content-center">
+      <h4>Reset Password</h4>
+    </div>
+    <div class="text-secondary">
+      Enter your email address to reset your password
+    </div>
+    <form *ngIf="resetPasswordForm" [formGroup]="resetPasswordForm">
+      <div class="form-group">
+        <label class="form-group-label">
+          <input
+            type="email"
+            class="input input-primary"
+            formControlName="email"
+          />
+        </label>
+      </div>
+      <div
+        class="form-group-error text-danger"
+        *ngIf="resetPasswordForm.get('email')?.errors"
+      >
+        <span *ngIf="resetPasswordForm.get('email')?.hasError('emailInvalid')"
+          >Email address is invalid</span
+        >
+      </div>
+    </form>
+  </div>
+  <div class="forgot-password-cancel-container flex">
+    <a class="link-primary small" [routerLink]="['../']"
+      >Cancel password reset</a
+    >
+  </div>
+  <div class="submit-container flex">
+    <button
+      class="btn btn-primary"
+      (click)="onFormSubmit()"
+      [disabled]="resetPasswordForm.invalid"
+    >
+      {{ "Reset" }}
+    </button>
+  </div>
+</div>
+<div class="container password-reset-success" *ngIf="resetPasswordRequestSent">
+  <div class="auth-title flex justify-content-center">
+    <h4>Check Your Inbox!</h4>
+  </div>
+</div>
+<ng-container *ngIf="resetCodeVerification">
+  <si-new-password (passwordConfirmed)="onPasswordChange($event)">
+  </si-new-password>
+</ng-container>

@@ -1,0 +1,11 @@
+{
+  "CORE": {
+    "MY_PROJECTS": "My Projects",
+    "FIND_PROJECT": "Find project",
+    "GET_STARTED": "Get Started"
+  },
+  "AUTH": {
+    "LOGIN_IN": "Log In",
+    "LOGIN_OUT": "Log out"
+  }
+}

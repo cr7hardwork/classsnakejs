@@ -1,0 +1,56 @@
+<div class="container login flex flex-column">
+  <div class="form-container flex flex-column">
+    <div class="auth-title flex">
+      <h4>Sign In/Register</h4>
+    </div>
+    <div class="text-secondary">Enter your email to begin</div>
+    <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+      <div class="form-group" *ngIf="loginForm.get('email')">
+        <label class="form-group-label">
+          <input
+            type="email"
+            class="input input-primary"
+            formControlName="email"
+            [disabled]="!!loginForm.get('password')"
+          />
+        </label>
+        <div
+          class="form-group-error text-danger"
+          *ngIf="loginForm.get('email')?.errors"
+        >
+          <span *ngIf="loginForm.get('email')?.hasError('notFound')"
+            >Email address is not authorized</span
+          >
+        </div>
+      </div>
+      <div class="form-group" *ngIf="loginForm.get('password')">
+        <label class="form-group-label">
+          <input type="password" formControlName="password" />
+        </label>
+        <div
+          class="form-group-error text-danger"
+          *ngIf="loginForm.get('password')?.errors"
+        >
+          <span *ngIf="loginForm.get('password')?.hasError('badPassword')"
+            >Bad password, please try again</span
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="forgot-password-container flex">
+    <a class="link-primary small" [routerLink]="['./reset']"
+      >Forgot your password?</a
+    >
+  </div>
+  <div class="submit-container flex">
+    <button
+      class="btn btn-primary"
+      type="submit"
+      (click)="onFormSubmit()"
+      [disabled]="loginForm.invalid"
+    >
+      {{ verified ? "Sign in" : "Continue" }}
+    </button>
+  </div>
+</div>

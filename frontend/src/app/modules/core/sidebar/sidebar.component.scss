@@ -1,0 +1,22 @@
+:host .sidebar {
+  .navigation-container {
+    .sidebar-menu-item {
+      padding: 15px;
+      text-decoration: none;
+      background: transparent;
+      color: #1dff8b;
+
+      &:hover {
+        background-color: #009c4c;
+        color: #9cffcc;
+      }
+
+      &.active {
+        border-right: #009c4c;
+        border-right-width: 4px;
+        border-right-style: solid;
+      }
+    }
+  }
+
+}

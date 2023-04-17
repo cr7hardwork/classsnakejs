@@ -1,0 +1,16 @@
+<div class="main-wrapper flex flex-column">
+  <div class="header-container-wrapper flex">
+    <div class="header-container flex">
+      <si-header class="flex"></si-header>
+    </div>
+
+  </div>
+  <div class="main flex flex-row">
+    <div class="sidebar" *ngIf="!!(user$ | async)">
+      <si-sidebar></si-sidebar>
+    </div>
+    <div class="main-content flex">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

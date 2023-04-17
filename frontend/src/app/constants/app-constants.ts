@@ -1,0 +1,3 @@
+export enum APP_CONSTANTS {
+  AUTH_TOKEN_KEY = 'AUTH_TOKEN',
+}

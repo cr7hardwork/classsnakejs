@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex: auto;
+  flex: 1;
+  .container.auth {
+    flex: auto;
+    background: #222;
+    justify-content: center;
+
+    .auth-component-container {
+      display: flex;
+      height: fit-content;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, .95);
+      padding: 2rem 0 0;
+      margin-top: 3rem;
+      max-width: 300px;
+      flex: 1;
+    }
+  }
+}

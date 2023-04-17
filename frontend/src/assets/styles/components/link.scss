@@ -1,0 +1,23 @@
+a {
+  &.link-primary {
+    color: var(--primary-green-color);
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 600;
+
+    &.small {
+      font-size: 80%;
+      font-weight: 400;
+    }
+
+    &:hover {
+      color: #0c4237ff;
+    }
+
+    &:visited {
+      color: var(--primary-green-color);;
+    }
+  }
+}
