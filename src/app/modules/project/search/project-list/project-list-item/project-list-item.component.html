@@ -1,0 +1,8 @@
+<div class="upwork-project-container">
+  <div class="project-name">{{ project.title }}</div>
+  <div class="project-description">{{ project.description }}</div>
+  <div class="project-budget">{{project.location | json}}</div>
+  <div class="apply-button">
+    <button *ngIf="!project.applied">Apply</button>
+  </div>
+</div>

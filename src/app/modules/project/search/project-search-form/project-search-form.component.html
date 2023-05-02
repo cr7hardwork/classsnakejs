@@ -1,1 +1,21 @@
-<p>project-search-form works!</p>
+<div class="container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group">
+        <si-industry-drowpdown formControlName="industry"></si-industry-drowpdown>
+      </div>
+      <div class="form-group">
+        <si-location-dropdown formControlName="location"></si-location-dropdown>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <si-equity-range-input formControlName="equityRange"></si-equity-range-input>
+      </div>
+      <div class="form-group">
+        <si-role-dropdown formControlName="role"></si-role-dropdown>
+      </div>
+    </div>
+    <button type="submit" [disabled]="searchForm.invalid">Search</button>
+  </form>
+</div>

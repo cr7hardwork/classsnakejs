@@ -1,1 +1,12 @@
-<p>project-list works!</p>
+<div class="container">
+  {{projects$|json}}
+  <div class="project-list">
+    <div class="project-list-item-container-wrapper" *ngFor="let project of (projects$ |async)">
+      <div>
+        <si-project-list-item [project]="project">
+
+        </si-project-list-item>
+      </div>
+    </div>
+  </div>
+</div>

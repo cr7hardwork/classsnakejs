@@ -1,0 +1,9 @@
+<div class="core-select-autocomplete">
+  <ng-select [items]="roles | async"
+             [multiple]="true"
+             bindLabel="name"
+             bindValue="id"
+             [(ngModel)]="value"
+             (ngModelChange)="onChange($event)">
+  </ng-select>
+</div>

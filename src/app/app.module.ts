@@ -8,6 +8,7 @@ import {TranslateModule} from "@ngx-translate/core";
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {TRANSLATION_CONFIG} from "./constants/translation.config";
+import {NgSelectModule} from "@ng-select/ng-select";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {TRANSLATION_CONFIG} from "./constants/translation.config";
     AppRoutingModule,
     TranslateModule.forRoot(TRANSLATION_CONFIG),
     HttpClientModule,
+    NgSelectModule,
     ReactiveFormsModule,
   ],
   providers: [],
