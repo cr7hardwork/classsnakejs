@@ -6,6 +6,7 @@ import {RoleDropdownComponent} from './profession-dropdown/role-dropdown.compone
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {IndustryDropDownComponent} from "@shared/industry-drowpdown/industry-drowpdown.component";
 import {NgSelectModule} from "@ng-select/ng-select";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {NgSelectModule} from "@ng-select/ng-select";
     IndustryDropDownComponent,
     LocationDropdownComponent,
     EquityRangeInputComponent,
-    RoleDropdownComponent
+    RoleDropdownComponent,
+    TranslateModule
   ]
 
 })

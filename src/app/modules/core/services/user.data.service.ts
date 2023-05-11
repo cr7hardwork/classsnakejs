@@ -5,7 +5,7 @@ import { IUser } from '@schemas/user';
 
 @Injectable({ providedIn: 'root' })
 export class UserDataService extends BaseDataService {
-  public getUserInfo(): Observable<IUser> {
-    return this.get('/authentication/user-info');
+  public getLoggedInUserInfo(): Observable<IUser> {
+    return this.get('/user');
   }
 }

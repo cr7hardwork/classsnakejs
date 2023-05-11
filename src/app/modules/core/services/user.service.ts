@@ -1,15 +1,13 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { IUser } from '@schemas/user';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {IUser} from '@schemas/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private userData$: BehaviorSubject<IUser | null> =
-    new BehaviorSubject<IUser | null>(null);
-  private userLoggedInData$: BehaviorSubject<boolean> =
-    new BehaviorSubject<boolean>(false);
+  private userData$: BehaviorSubject<IUser | null> = new BehaviorSubject<IUser | null>(null);
+  private userLoggedInData$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   get user$(): BehaviorSubject<IUser | null> {
     return this.userData$;

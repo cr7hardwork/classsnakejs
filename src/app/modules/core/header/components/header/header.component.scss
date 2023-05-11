@@ -1,13 +1,13 @@
 :host {
   flex: 1;
+
   .header-container {
     flex: 1;
+
     .header {
       flex: 1;
 
       .logo-container {
-        flex: 2;
-
         img {
           height: auto;
           width: auto;
@@ -16,20 +16,29 @@
         }
       }
 
-      .header-actions-container {
-        flex: 5;
-      }
+      .navigation-bar {
+        margin-left: 10rem;
+        flex: 1;
+        justify-content: flex-start;
+        .header-actions-container {
+          flex: 0 1 auto;
+        }
 
-      .user-login-actions-container {
-        flex: 3;
-      }
+        .header-login-actions-container {
+          flex: 1 1 auto;
+        }
 
-      .user-actions-container {
-        flex: 3;
-      }
+        .user-actions-container {
+          flex: 0 1 auto;
+          margin-left: auto;
+        }
 
+        .user-login-actions-container {
+          flex: 0 1 auto;
+          margin-left: auto;
+        }
+      }
     }
-
   }
 }
 

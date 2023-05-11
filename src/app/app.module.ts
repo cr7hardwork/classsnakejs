@@ -9,6 +9,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {TRANSLATION_CONFIG} from "./constants/translation.config";
 import {NgSelectModule} from "@ng-select/ng-select";
+import {INTERCEPTORS} from "@core/interceptors";
+import {INITIALIZATION_PROVIDERS} from "@core/initialize/app.initialize";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,10 @@ import {NgSelectModule} from "@ng-select/ng-select";
     NgSelectModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    ...INTERCEPTORS,
+    ...INITIALIZATION_PROVIDERS
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

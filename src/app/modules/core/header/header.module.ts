@@ -6,8 +6,9 @@ import {HeaderUserActionsComponent} from './components/header-user-actions/heade
 import {
   HeaderUserLoginActionsComponent
 } from './components/header-user-login-actions/header-user-login-actions.component';
-import {TranslateModule} from "@ngx-translate/core";
 import {RouterModule} from "@angular/router";
+import {SharedModule} from "@shared/shared.module";
+import { HeaderLoginActionsComponent } from './components/header-login-actions/header-login-actions.component';
 
 
 @NgModule({
@@ -15,12 +16,13 @@ import {RouterModule} from "@angular/router";
     HeaderComponent,
     HeaderActionsComponent,
     HeaderUserActionsComponent,
-    HeaderUserLoginActionsComponent
+    HeaderUserLoginActionsComponent,
+    HeaderLoginActionsComponent
   ],
   imports: [
     RouterModule,
     CommonModule,
-    TranslateModule
+    SharedModule,
   ],
   exports: [
     HeaderComponent

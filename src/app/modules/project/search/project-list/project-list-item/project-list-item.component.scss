@@ -1,0 +1,57 @@
+.project-list-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.project-details {
+  flex: 1;
+  margin-right: 16px;
+}
+.project-name {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.project-description {
+  margin-bottom: 8px;
+}
+.project-skills {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.project-skills span {
+  font-weight: bold;
+  margin-right: 4px;
+}
+.project-skills ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.project-skills li {
+  background-color: #eee;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+.project-budget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 18px;
+}
+.project-budget span {
+  font-weight: bold;
+}
+.project-budget-amount {
+  font-size: 24px;
+  font-weight: bold;
+}

@@ -1,6 +1,6 @@
 <div class="container">
-  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-    <div class="form-row">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="full-width flex-column">
+    <div class="form-row full-width justify-content-center">
       <div class="form-group">
         <si-industry-drowpdown formControlName="industry"></si-industry-drowpdown>
       </div>

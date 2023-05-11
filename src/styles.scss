@@ -2,15 +2,22 @@
 @import './assets/styles/template.scss';
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
-html, body{
+html, body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 
 body {

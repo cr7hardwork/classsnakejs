@@ -24,6 +24,10 @@
       .main-content {
         width: 90em
       }
+
+      .main-content router-outlet *{
+        width: 100%;
+      }
     }
   }
 }

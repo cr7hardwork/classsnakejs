@@ -1,2 +1,10 @@
-<si-project-search-form></si-project-search-form>
-<si-project-list [projects$]="projects$"></si-project-list>
+<div class="container flex flex-column">
+  <div class="flex full-width">
+    <si-project-search-form class="flex full-width"></si-project-search-form>
+  </div>
+  <div class="flex full-width">
+    <si-project-list [projects$]="projects$"></si-project-list>
+  </div>
+</div>
+
+

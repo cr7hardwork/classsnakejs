@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'si-header-user-login-actions',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderUserLoginActionsComponent {
 
+  @Output() login: EventEmitter<void> = new EventEmitter();
+
+  public onLoginButtonClicked(): void {
+    this.login.emit();
+  }
 }

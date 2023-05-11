@@ -33,9 +33,9 @@ export class ResetComponent {
     this.authService
       .createPassword(data)
       .subscribe((response: { email: string }) => {
-        const authData = { password: password, username: response.email };
-        this.authService.loadAndStoreToken(authData).subscribe(() => {
-          this.userDataService.getUserInfo().subscribe((data: IUser) => {
+        const authData = { password: password, email: response.email };
+        this.authService.login(authData).subscribe(() => {
+          this.userDataService.getLoggedInUserInfo().subscribe((data: IUser) => {
             this.userService.setUser(data);
             this.router.navigate(['/dashboard/tardies']);
           });

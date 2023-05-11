@@ -2,6 +2,7 @@
   "CORE": {
     "MY_PROJECTS": "My Projects",
     "FIND_PROJECT": "Find project",
+    "CREATE_PROJECT": "Post a project",
     "GET_STARTED": "Get Started"
   },
   "AUTH": {

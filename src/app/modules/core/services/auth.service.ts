@@ -18,10 +18,6 @@ import { APP_CONSTANTS } from '../../../constants/app-constants';
 
 interface ITokenResponse {
   accessToken: string;
-  error: null;
-  expiresAtUtc: string;
-  expiresIn: number;
-  tokenType: string;
 }
 
 @Injectable({
@@ -35,29 +31,16 @@ export class AuthService extends BaseDataService {
     return this.post('/authentication/reset-password', data);
   }
 
-  public loadAndStoreToken(formAuthData: {
-    username: string;
+  public login(formAuthData: {
+    email: string;
     password: string;
   }): Observable<boolean> {
-    const authData = {
-      grant_type: 'password',
-      scope: 'Vendor',
-      ...formAuthData,
-    };
-
-    const options = {
-      headers: new HttpHeaders().set(
-        'Content-Type',
-        'application/x-www-form-urlencoded'
-      ),
-    };
-    const data = new HttpParams({ fromObject: authData }).toString();
-    return this.post('/token', data, null, options).pipe(
+    return this.post('/auth/signin', formAuthData, null).pipe(
       catchError((error: HttpErrorResponse) => {
         return throwError(error);
       }),
       switchMap((response: ITokenResponse) => {
-        StorageService.set('AUTH_TOKEN', response.accessToken);
+        StorageService.set(APP_CONSTANTS.AUTH_TOKEN_KEY, response.accessToken);
         return of(true);
       })
     );
@@ -81,7 +64,7 @@ export class AuthService extends BaseDataService {
   }
 
   public restoreSession(): Promise<void> {
-    return firstValueFrom(this.get('/token/verify'));
+    return firstValueFrom(this.get('/user'));
   }
 
   public verify(): Promise<void> {

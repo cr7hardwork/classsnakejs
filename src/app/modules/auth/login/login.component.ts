@@ -37,49 +37,24 @@ export class LoginComponent {
   private createAndReturnFromGroup() {
     return new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
     });
   }
 
   public onFormSubmit(): void {
-    if (this.verified) {
-      this.getToken();
-    } else {
-      this.verify();
-    }
+    this.login();
   }
 
-  private addPasswordControlToTheLoginFormGroup(): void {
-    this.loginForm.addControl(
-      'password',
-      new FormControl('', [Validators.required])
-    );
-  }
-
-  private verify(): void {
-    const formData = this.loginForm.getRawValue();
-    const {email} = formData;
-    this.authService.verifyEmail(email).subscribe(
-      () => {
-        this.verified = true;
-        this.addPasswordControlToTheLoginFormGroup();
-      },
-      () => {
-        this.loginForm.get('email')?.setErrors({notFound: true});
-        this.verified = false;
-      }
-    )
-  }
-
-  private getToken(): void {
+  private login(): void {
     const formData = this.loginForm.getRawValue();
     const {email, password} = formData;
     firstValueFrom(
-      this.authService.loadAndStoreToken({username: email, password})
+      this.authService.login({email, password})
     ).then(
       () => {
-        this.userDataService.getUserInfo().subscribe((data: IUser) => {
+        firstValueFrom(this.userDataService.getLoggedInUserInfo()).then((data: IUser) => {
           this.userService.setUser(data);
-          this.router.navigate(['/dashboard/tardies']);
+          this.router.navigate(['/project']);
         });
       },
       (error: HttpErrorResponse) => {

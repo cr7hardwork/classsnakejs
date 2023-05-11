@@ -19,7 +19,7 @@ const initializeAuthData =
     }
     return authService.restoreSession().then(
       () => {
-        return firstValueFrom(userDataService.getUserInfo()).then(
+        return firstValueFrom(userDataService.getLoggedInUserInfo()).then(
           (userResponse: IUser | undefined) => {
             if (userResponse) {
               userService.setUser(userResponse);

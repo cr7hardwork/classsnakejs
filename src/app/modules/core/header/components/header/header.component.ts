@@ -28,6 +28,10 @@ export class HeaderComponent {
     });
   }
 
+  public onLoginButtonClicked(): void {
+    this.router.navigate(['/auth'])
+  }
+
   public onNavigateToHomePage(): void {
     this.router.navigate(['/projects'])
   }

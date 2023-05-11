@@ -3,17 +3,23 @@
     <div class="logo-container flex" (click)="onNavigateToHomePage()">
       <img src="/assets/images/logo-transparent.svg">
     </div>
-    <div class="flex header-actions-container">
-      <si-header-actions class="flex">
-      </si-header-actions>
-    </div>
-    <div class="user-actions-container flex" *ngIf="(user$ | async)">
-      <si-header-user-actions class="flex">
-      </si-header-user-actions>
-    </div>
-    <div class="user-login-actions-container flex" *ngIf="!(user$|async)">
-      <si-header-user-login-actions class="flex">
-      </si-header-user-login-actions>
+    <div  class="flex flex-row navigation-bar">
+      <div class="flex header-actions-container">
+        <si-header-actions class="flex">
+        </si-header-actions>
+      </div>
+      <div class="flex header-login-actions-container" *ngIf="(user$ | async)">
+        <si-header-login-actions class="flex">
+        </si-header-login-actions>
+      </div>
+      <div class="user-actions-container flex" *ngIf="(user$ | async)">
+        <si-header-user-actions class="flex" >
+        </si-header-user-actions>
+      </div>
+      <div class="user-login-actions-container flex" *ngIf="!(user$|async)">
+        <si-header-user-login-actions class="flex" (login)="onLoginButtonClicked()">
+        </si-header-user-login-actions>
+      </div>
     </div>
   </header>
 </div>

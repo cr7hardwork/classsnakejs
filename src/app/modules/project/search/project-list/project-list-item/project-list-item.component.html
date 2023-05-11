@@ -1,8 +1,10 @@
-<div class="upwork-project-container">
-  <div class="project-name">{{ project.title }}</div>
-  <div class="project-description">{{ project.description }}</div>
-  <div class="project-budget">{{project.location | json}}</div>
-  <div class="apply-button">
-    <button *ngIf="!project.applied">Apply</button>
+<div class="project-list-item-container flex flex-column full-width">
+  <div class="project-name flex">{{ project.title }}</div>
+  <div class="project-description flex">{{ project.description }}</div>
+  <div class="project-data flex flex-row">
+    <div class="project-location">{{project.location | json}}</div>
+    <div class="apply-button">
+      <button *ngIf="!project.applied">Apply</button>
+    </div>
   </div>
 </div>

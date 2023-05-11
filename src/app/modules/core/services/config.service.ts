@@ -10,6 +10,6 @@ export class ConfigService {
   }
 
   get appBaseUrl(): string {
-    return environment.BASE_URL || window.location.host;
+    return environment.BASE_API_URL || window.location.host;
   }
 }

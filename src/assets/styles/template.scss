@@ -17,7 +17,13 @@
   &.flex-column {
     flex-direction: column;
   }
+
+  &.full-width {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
 }
+
 
 .text-danger {
   color: #dc3545;
