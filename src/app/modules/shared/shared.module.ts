@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {IndustryDropDownComponent} from "@shared/industry-drowpdown/industry-drowpdown.component";
 import {NgSelectModule} from "@ng-select/ng-select";
 import {TranslateModule} from "@ngx-translate/core";
+import { ProjectMemberComponent } from './project-member/project-member.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {TranslateModule} from "@ngx-translate/core";
     IndustryDropDownComponent,
     LocationDropdownComponent,
     EquityRangeInputComponent,
-    RoleDropdownComponent
+    RoleDropdownComponent,
+    ProjectMemberComponent
   ],
   imports: [
     FormsModule,
@@ -27,6 +29,7 @@ import {TranslateModule} from "@ngx-translate/core";
     LocationDropdownComponent,
     EquityRangeInputComponent,
     RoleDropdownComponent,
+    ProjectMemberComponent,
     TranslateModule
   ]
 

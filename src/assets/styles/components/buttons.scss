@@ -19,12 +19,17 @@
   }
 
   &.btn-secondary {
-    border-color: var(--primary-green-color);
-    background-color: var(--primary-white-color);
+    border-color: var(--primary-orange-color);
+    background-color: var(--primary-orange-color);
+    color: var(--primary-white-color);;
 
     &:hover {
-      color: var(--primary-white-color);
-      background-color: var(--primary-orange-color);
+      color: var(--primary-orange-color);
+      background-color: var(--primary-light-orange-color);
     }
+  }
+
+  &[disabled=true] {
+
   }
 }

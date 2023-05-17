@@ -18,11 +18,11 @@ export class IndustryDropDownComponent implements OnInit, ControlValueAccessor {
   @Input() industries: Observable<IIndustry[]> = of([]);
   value: number | null = null;
 
-  ngOnInit() {
-    this.industries = this.coreDataService.getIndustries();
+  constructor(private coreDataService: CoreDataService) {
   }
 
-  constructor(private coreDataService: CoreDataService) {
+  ngOnInit() {
+    this.industries = this.coreDataService.getIndustries();
   }
 
   onChange: (value: string | null) => void = () => {

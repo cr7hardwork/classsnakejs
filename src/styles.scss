@@ -41,25 +41,3 @@ body {
   flex: 1;
   margin-right: 1rem;
 }
-
-button {
-  padding: 0.5rem 1rem;
-  background-color: #6fda44;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-button:hover {
-  background-color: #5bc934;
-}
-
-select {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-}

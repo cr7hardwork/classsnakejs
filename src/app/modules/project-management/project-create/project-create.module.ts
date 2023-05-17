@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { ProjectCreateRoutingModule } from './project-create-routing.module';
-import { ProjectCreateComponent } from './project-create.component';
+import {ProjectCreateRoutingModule} from './project-create-routing.module';
+import {ProjectCreateComponent} from './project-create.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "@shared/shared.module";
 
@@ -15,7 +15,8 @@ import {SharedModule} from "@shared/shared.module";
     CommonModule,
     ProjectCreateRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
   ]
 })
-export class ProjectCreateModule { }
+export class ProjectCreateModule {
+}

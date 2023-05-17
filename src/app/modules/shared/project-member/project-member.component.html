@@ -1,0 +1,11 @@
+<div class="project-member-container flex flex-row" [formGroup]="formGroup">
+  <div class="flex role">
+    <si-role-dropdown formControlName="role"></si-role-dropdown>
+  </div>
+  <div class="flex location">
+    <si-location-dropdown formControlName="location"></si-location-dropdown>
+  </div>
+  <div class="flex equity">
+    <si-equity-range-input formControlName="equity"></si-equity-range-input>
+  </div>
+</div>

@@ -3,10 +3,15 @@
     "MY_PROJECTS": "My Projects",
     "FIND_PROJECT": "Find project",
     "CREATE_PROJECT": "Post a project",
-    "GET_STARTED": "Get Started"
+    "GET_STARTED": "Get Started",
+    "CREATE": "CREATE",
+    "TITLE": "Title"
   },
   "AUTH": {
     "LOGIN_IN": "Log In",
     "LOGIN_OUT": "Log out"
+  },
+  "PROJECT": {
+    "ADD_MEMBER": "ADD A MEMBER"
   }
 }

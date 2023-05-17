@@ -17,9 +17,29 @@ input.si-primary {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-.custom-text-input:focus {
-  border-color: #68a1fd;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(104, 161, 253, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(104, 161, 253, 0.6);
+.primary-input-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 8px;
+  border-radius: 4px;
+
+  input-label {
+    display: flex;
+  }
+
+  .input-container {
+    display: flex;
+
+    input {
+      display: flex;
+    }
+  }
+
+  &.horizontal {
+    flex-direction: row;
+  }
 }
+
+
