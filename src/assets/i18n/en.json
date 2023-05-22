@@ -5,7 +5,12 @@
     "CREATE_PROJECT": "Post a project",
     "GET_STARTED": "Get Started",
     "CREATE": "CREATE",
-    "TITLE": "Title"
+    "TITLE": "Title",
+    "DESCRIPTION": "Description",
+    "ROLE": "Role",
+    "LOCATION": "Location",
+    "EQUITY": "Equity",
+    "INDUSTRY": "Industry"
   },
   "AUTH": {
     "LOGIN_IN": "Log In",

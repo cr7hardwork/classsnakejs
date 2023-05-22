@@ -1,11 +1,14 @@
 <div class="project-member-container flex flex-row" [formGroup]="formGroup">
-  <div class="flex role">
+  <div class="flex role si-m-h-small primary-input-container si-mr-small">
+    <label class="input-label">{{"CORE.ROLE" | translate | uppercase}}</label>
     <si-role-dropdown formControlName="role"></si-role-dropdown>
   </div>
-  <div class="flex location">
+  <div class="flex location si-m-h-small primary-input-container si-m-h-small">
+    <label class="input-label">{{"CORE.LOCATION" | translate | uppercase}}</label>
     <si-location-dropdown formControlName="location"></si-location-dropdown>
   </div>
-  <div class="flex equity">
+  <div class="flex equity primary-input-container si-mr-small">
+    <label class="input-label">{{"CORE.EQUITY" | translate | uppercase}}</label>
     <si-equity-range-input formControlName="equity"></si-equity-range-input>
   </div>
 </div>

@@ -10,24 +10,6 @@ import {IPaginationParams} from "@schemas/core-data/pagination-params";
 export class ProjectDataService extends BaseDataService {
 
   public getProjectsList(pagination: IPaginationParams): Observable<IProjectListItem[]> {
-    let counter = 0;
-    let title = 'a'
-    let description = 'd'
-    let location = 'l'
-    const projects = Array(20).fill(null).map(() => {
-      description += 'd'
-      title += 't';
-      location += 'l'
-      return {
-        id: ++counter,
-        applied: false,
-        description,
-        title,
-        location: location.split(''),
-
-      }
-    })
-    console.log(projects)
-    return of(projects)
+    return this.get('/project');
   }
 }

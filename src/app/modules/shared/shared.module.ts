@@ -22,7 +22,8 @@ import { ProjectMemberComponent } from './project-member/project-member.componen
     FormsModule,
     NgSelectModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    TranslateModule
   ],
   exports: [
     IndustryDropDownComponent,

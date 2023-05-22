@@ -9,7 +9,7 @@ export class ProjectDataService extends BaseDataService {
 
 
   public create(projectData: any): Observable<void> {
-    return this.post('project', projectData);
+    return this.post('/project', projectData);
   }
 }
 

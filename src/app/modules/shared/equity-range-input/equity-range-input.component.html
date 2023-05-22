@@ -1,10 +1,12 @@
 <div class="flex flex-row">
-  <div class="input-container flex">
-    <label for="minValue">Min:</label>
-    <input class="si-primary" type="number" id="minValue" [maxlength]="maxValue" [(ngModel)]="minValue" (ngModelChange)="onValueChange()"/>
+  <div class="primary-input-container horizontal flex">
+    <label class="input-label" for="minValue">Min:</label>
+    <input class="si-primary" type="number" id="minValue" [maxlength]="maxValue" [(ngModel)]="minValue"
+           (ngModelChange)="onValueChange()"/>
   </div>
-  <div class="input-container flex">
-    <label for="maxValue">Max:</label>
-    <input class="si-primary" type="number" id="maxValue" [minlength]="minValue" [(ngModel)]="maxValue" (ngModelChange)="onValueChange()"/>
+  <div class="primary-input-container horizontal flex si-ml-small">
+    <label class="input-label" for="maxValue">Max:</label>
+    <input class="si-primary" type="number" id="maxValue" [minlength]="minValue" [(ngModel)]="maxValue"
+           (ngModelChange)="onValueChange()"/>
   </div>
 </div>

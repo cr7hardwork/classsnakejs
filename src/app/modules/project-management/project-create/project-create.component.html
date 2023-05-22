@@ -1,36 +1,45 @@
-<div class="create-project-container flex flex-column">
+<div class="create-project-container container flex flex-column ">
   <div class="project-create">
     <form [formGroup]="createProjectForm" *ngIf="createProjectForm" (ngSubmit)="onCreateFormSubmit()">
       <div class="form-row">
         <div class="primary-input-container">
-          <label class="input-label">{{'CORE.TITLE' | translate | uppercase}}</label>
+          <label class="input-label">{{'CORE.TITLE' | translate | uppercase}} *</label>
           <div class="input-container">
             <input type="text" class="si-primary" formControlName="title">
           </div>
         </div>
       </div>
       <div class="form-row">
-        <textarea type="primary" class="text-primary" formControlName="description">
+        <div class="primary-input-container">
+          <label class="input-label">{{'CORE.DESCRIPTION' | translate | uppercase}} *</label>
+          <textarea class="si-primary" formControlName="description">
         </textarea>
+        </div>
       </div>
       <div class="form-row">
-        <div class="industry">
+        <div class="primary-input-container flex flex-initial">
+          <label class="input-label">{{"CORE.INDUSTRY" | translate | uppercase}} *</label>
           <si-industry-drowpdown formControlName="industries"></si-industry-drowpdown>
         </div>
       </div>
-      <div class="members container" formArrayName="members">
+      <div class="members" formArrayName="members">
         <div class="form-row" *ngFor="let member of members.controls; let i = index">
-          <si-project-member [formGroup]="getFormGroup(i)"></si-project-member>
+          <div class="project-member-form-group-container">
+            <div class="project"></div>
+            <si-project-member [formGroup]="getFormGroup(i)"></si-project-member>
+          </div>
+
         </div>
         <div class="add-member-button-container">
-          <button class="btn btn-secondary" (click)="onAddMember()">
+          <button type="button" class="btn btn-secondary" (click)="onAddMember()">
             {{'PROJECT.ADD_MEMBER' | translate}}
           </button>
         </div>
       </div>
 
       <div class="form-row">
-        <button type="submit" class="btn btn-primary" [disabled]="createProjectForm.invalid">{{"CORE.CREATE" | translate}}</button>
+        <button type="submit" class="btn btn-primary"
+                [disabled]="createProjectForm.invalid">{{"CORE.CREATE" | translate}}</button>
       </div>
     </form>
   </div>

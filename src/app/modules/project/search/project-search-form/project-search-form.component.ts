@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -7,8 +7,9 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./project-search-form.component.scss']
 })
 export class ProjectSearchFormComponent implements OnInit {
-
   searchForm!: FormGroup;
+  @Output() search: EventEmitter<any> = new EventEmitter<any>()
+
 
   constructor(private formBuilder: FormBuilder) {
     this.createSearchForm();
@@ -22,14 +23,15 @@ export class ProjectSearchFormComponent implements OnInit {
 
   private createSearchForm(): void {
     this.searchForm = this.formBuilder.group({
-      industry: ['', Validators.required],
-      location: ['', Validators.required],
-      equityRange: ['', Validators.required],
-      role: ['', Validators.required]
+      industry: [null],
+      location: [null],
+      equityRange: [null],
+      role: [null]
     });
   }
 
   public onSubmit(): void {
-
+    const searchFormData = this.searchForm.getRawValue();
+    this.search.emit(searchFormData)
   }
 }

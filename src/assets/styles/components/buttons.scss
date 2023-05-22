@@ -12,24 +12,25 @@
     border-color: var(--primary-green-color);
     background-color: var(--primary-green-color);
 
-    &:hover {
+    &:hover:not([disabled]) {
       color: var(--primary-green-color);
       background-color: var(--primary-light-green-color);
     }
   }
 
-  &.btn-secondary {
+  &.btn-secondary:not([disabled]) {
     border-color: var(--primary-orange-color);
     background-color: var(--primary-orange-color);
     color: var(--primary-white-color);;
 
-    &:hover {
+    &:hover:not([disabled]) {
       color: var(--primary-orange-color);
       background-color: var(--primary-light-orange-color);
     }
   }
 
-  &[disabled=true] {
-
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }

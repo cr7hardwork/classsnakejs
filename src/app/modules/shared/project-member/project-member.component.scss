@@ -1,0 +1,8 @@
+.project-member-container {
+  justify-content: space-between;
+
+  .role, .location, .equity {
+    flex: auto;
+    padding: 0;
+  }
+}

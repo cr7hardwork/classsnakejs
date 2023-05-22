@@ -2,20 +2,32 @@
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="full-width flex-column">
     <div class="form-row full-width justify-content-center">
       <div class="form-group">
-        <si-industry-drowpdown formControlName="industry"></si-industry-drowpdown>
+        <div class="primary-input-container">
+          <label class="input-label">{{"CORE.INDUSTRY" | translate | uppercase}}</label>
+          <si-industry-drowpdown formControlName="industry"></si-industry-drowpdown>
+        </div>
       </div>
       <div class="form-group">
-        <si-location-dropdown formControlName="location"></si-location-dropdown>
+        <div class="primary-input-container">
+          <label class="input-label">{{"CORE.LOCATION" | translate | uppercase}}</label>
+          <si-location-dropdown formControlName="location"></si-location-dropdown>
+        </div>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        <si-equity-range-input formControlName="equityRange"></si-equity-range-input>
+        <div class="primary-input-container">
+          <label class="input-label">{{"CORE.EQUITY" | translate | uppercase}}</label>
+          <si-equity-range-input formControlName="equityRange"></si-equity-range-input>
+        </div>
       </div>
       <div class="form-group">
-        <si-role-dropdown formControlName="role"></si-role-dropdown>
+        <div class="primary-input-container">
+          <label class="input-label">{{"CORE.ROLE" | translate | uppercase}}</label>
+          <si-role-dropdown formControlName="role"></si-role-dropdown>
+        </div>
       </div>
     </div>
-    <button type="submit" [disabled]="searchForm.invalid">Search</button>
+    <button class="btn si-primary" type="submit" [disabled]="searchForm.invalid">Search</button>
   </form>
 </div>

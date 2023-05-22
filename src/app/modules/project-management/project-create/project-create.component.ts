@@ -39,7 +39,7 @@ export class ProjectCreateComponent implements OnInit {
         description: ['']
       }
     )
-    this.members.push(member)
+    this.members.push(member);
   }
 
   public onCreateFormSubmit(): void {
