@@ -1,8 +1,16 @@
 
-class Snake {
 
+class Snake {
+    snake = [];
+    shead = {
+        x: this.snakeXdelta,
+        y: this.snakeYdelta
+
+    };
+
+    dir = "right";
     constructor(size) {
-        this.snake = [];
+
         this.snake[0] = {
             x: 9 * size,
             y: 10 * size,
@@ -11,20 +19,18 @@ class Snake {
         this.snakeXdelta = this.snake[0].x;
         this.snakeYdelta = this.snake[0].y;
 
-        this.size = 30;
-        this.shead = {
-            x: this.snakeXdelta,
-            y: this.snakeYdelta
+        this.size = size;
 
-        };
 
-        this.dir = "left";
 
     };
 
 
-
-
+    context() {
+        game.context.fillStyle = "white";
+        game.context.font = "60px Verdana";
+        game.context.fillText("Game over", 120, 300);
+    }
 
 
 
@@ -73,26 +79,20 @@ class Snake {
     }
 
 
-    #whenSnakehits() {
-        if (this.snakeXdelta < this.size || this.snakeXdelta > this.size * 18 ||
-            this.snakeYdelta < this.size || this.snakeYdelta > this.size * 18) {
-            clearInterval(game.start);
-            game.context.fillStyle = "white",
-                game.context.font = "60px Verdana",
-                game.context.fillText("Game over", 120, 300);
-        }
-    }
-
-
-
     #eatTail() {
         for (let i = 1; i < this.snake.length; i++) {
             if (this.snakeXdelta === this.snake[i].x && this.snakeYdelta === this.snake[i].y) {
-                clearInterval(game.start);
-                game.context.fillStyle = "white";
-                game.context.font = "60px Verdana";
-                game.context.fillText("Game over", 120, 300);
+                clearInterval(game.buttons.start);
+                this.context(game);
             }
+        }
+    }
+
+    #whenSnakehits() {
+        if (this.snakeXdelta < this.size || this.snakeXdelta > this.size * 18 ||
+            this.snakeYdelta < this.size || this.snakeYdelta > this.size * 18) {
+            clearInterval(game.buttons.start);
+            this.context(game);
         }
     }
 
@@ -100,14 +100,14 @@ class Snake {
 
 
     #checkBoxoptions() {
-        const chbox = document.getElementById("myCheck")
+        const chbox = document.getElementById("check")
         const box = setInterval(optionwithcheckbox);
         function optionwithcheckbox() {
             if (chbox.checked) {
-                game.snake.#insidThewall()
+                game.snake.#insidThewall(game)
             }
             else {
-                game.snake.#whenSnakehits();
+                game.snake.#whenSnakehits(game);
 
             }
         };
@@ -116,9 +116,10 @@ class Snake {
 
 
     allSnakeLogic() {
-        this.#checkBoxoptions();
-        this.#eatTail();
+        this.#checkBoxoptions(game);
+        this.#eatTail(game);
         this.directionChange(this.dir);
+        this.mySnakeMove();
     }
 
 
@@ -126,6 +127,7 @@ class Snake {
     mySnakeMove() {
         document.addEventListener("keydown", this.direction.bind(this));
     }
+
 
 
     direction(event) {
@@ -151,19 +153,6 @@ class Snake {
 
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
