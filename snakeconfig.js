@@ -31,7 +31,7 @@ class Buttons {
 
   createStartButton() {
     this.buttonStart = document.createElement("button");
-    this.buttonStart.textContent = "Start";
+    this.buttonStart.textContent = "Start";   
     document.body.appendChild(this.buttonStart);
     this.buttonStart.addEventListener("click", () => this.theGameStart());
   }
@@ -64,7 +64,7 @@ class Buttons {
 
   theGameStart() {
     if (!this.isGameStarted) {
-      this.start = setInterval(drawGame, 100);
+      this.start = setInterval(this.game.theGameLogic.bind(this.game), 100);
     }
     this.isGameStarted = true;
   }

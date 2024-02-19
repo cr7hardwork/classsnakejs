@@ -1,6 +1,8 @@
 
 class Food {
-    constructor(size) {
+    constructor(size,game) {
+        this.size = size;
+        this.game = game;
         this.x = Math.floor((Math.random() * 17 + 1)) * size;
         this.y = Math.floor((Math.random() * 15 + 2)) * size;
 
@@ -10,19 +12,19 @@ class Food {
     }
     draw() {
 
-        game.context.drawImage(this.img, this.x, this.y, 20, 20);
+        this.game.view.context.drawImage(this.img, this.x, this.y, 20, 20);
     }
 
     randomfood() {
-        this.x = Math.floor((Math.random() * 17 + 1)) * game.score.size;
-        this.y = Math.floor((Math.random() * 15 + 2)) * game.score.size;
+        this.x = Math.floor((Math.random() * 17 + 1)) * this.size;
+        this.y = Math.floor((Math.random() * 15 + 2)) * this.size;
     }
 
 
 
 
     allAboutFood() {
-        this.draw(game);
+        this.draw();
 
     }
 

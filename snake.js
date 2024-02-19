@@ -9,8 +9,8 @@ class Snake {
     };
 
     dir = "right";
-    constructor(size) {
-
+    constructor(size,game) {
+        this.game = game;
         this.snake[0] = {
             x: 9 * size,
             y: 10 * size,
@@ -27,9 +27,9 @@ class Snake {
 
 
     context() {
-        game.context.fillStyle = "white";
-        game.context.font = "60px Verdana";
-        game.context.fillText("Game over", 120, 300);
+       this.game.view.context.fillStyle = "white";
+       this.game.view.context.font = "60px Verdana";
+       this.game.view.context.fillText("Game over", 120, 300);
     }
 
 
@@ -58,22 +58,27 @@ class Snake {
 
     snakeDraw() {
         for (let i = 0; i < this.snake.length; i++) {
-            (game.context.fillStyle = i === 0 ? "black" : "red",
-                game.context.fillRect(this.snake[i].x, this.snake[i].y, 20, 20))
+            (this.game.view.context.fillStyle = i === 0 ? "black" : "red",
+                this.game.view.context.fillRect(this.snake[i].x, this.snake[i].y, 20, 20))
         }
     };
 
+    snakepop(){
+        this.snake.pop();
+
+      }
+
     #insidThewall() {
         if (this.snakeXdelta < 0) {
-            this.snakeXdelta = game.canvas.width - this.size;
+            this.snakeXdelta = this.game.view.canvas.width - this.size;
         }
-        else if (this.snakeXdelta >= game.canvas.width) {
+        else if (this.snakeXdelta >= this.game.view.canvas.width) {
             this.snakeXdelta = 0;
         }
         else if (this.snakeYdelta < 0) {
-            this.snakeYdelta = game.canvas.height - this.size;
+            this.snakeYdelta = this.game.view.canvas.height - this.size;
         }
-        else if (this.snakeYdelta >= game.canvas.height) {
+        else if (this.snakeYdelta >= this.game.view.canvas.height) {
             this.snakeYdelta = 0;
         }
     }
@@ -82,8 +87,8 @@ class Snake {
     #eatTail() {
         for (let i = 1; i < this.snake.length; i++) {
             if (this.snakeXdelta === this.snake[i].x && this.snakeYdelta === this.snake[i].y) {
-                clearInterval(game.buttons.start);
-                this.context(game);
+                clearInterval(this.game.buttons.start);
+                this.context();
             }
         }
     }
@@ -91,8 +96,8 @@ class Snake {
     #whenSnakehits() {
         if (this.snakeXdelta < this.size || this.snakeXdelta > this.size * 18 ||
             this.snakeYdelta < this.size || this.snakeYdelta > this.size * 18) {
-            clearInterval(game.buttons.start);
-            this.context(game);
+            clearInterval(this.game.buttons.start);
+            this.context();
         }
     }
 
@@ -101,23 +106,25 @@ class Snake {
 
     #checkBoxoptions() {
         const chbox = document.getElementById("check")
-        const box = setInterval(optionwithcheckbox);
-        function optionwithcheckbox() {
+        const box = setInterval(() => {
             if (chbox.checked) {
-                game.snake.#insidThewall(game)
+                this.game.snake.#insidThewall()
             }
             else {
-                game.snake.#whenSnakehits(game);
+                this.game.snake.#whenSnakehits();
 
             }
+        });
+
+            
         };
-    };
+;
 
 
 
     allSnakeLogic() {
-        this.#checkBoxoptions(game);
-        this.#eatTail(game);
+        this.#checkBoxoptions();
+        this.#eatTail();
         this.directionChange(this.dir);
         this.mySnakeMove();
     }
@@ -150,7 +157,13 @@ class Snake {
         if (dir === "down") this.goDown();
     }
 
+   
 
+
+    
+
+
+     
 
 };
 
