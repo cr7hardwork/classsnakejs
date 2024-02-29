@@ -31,7 +31,7 @@ class Buttons {
 
   createStartButton() {
     this.buttonStart = document.createElement("button");
-    this.buttonStart.textContent = "Start";   
+    this.buttonStart.textContent = "Start";
     document.body.appendChild(this.buttonStart);
     this.buttonStart.addEventListener("click", () => this.theGameStart());
   }
@@ -52,9 +52,12 @@ class Buttons {
 
 
 
-  theGameReset() {
-    location.reload();
-  }
+theGameReset(){
+
+ location.reload();
+}
+  
+
 
   theGamePause() {
     clearInterval(this.start);

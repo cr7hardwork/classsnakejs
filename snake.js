@@ -6,15 +6,17 @@ class Snake {
         x: this.snakeXdelta,
         y: this.snakeYdelta
 
-    };
+    }
 
     dir = "right";
-    constructor(size,game) {
+    constructor(size, game) {
         this.game = game;
         this.snake[0] = {
             x: 9 * size,
             y: 10 * size,
         }
+
+
 
         this.snakeXdelta = this.snake[0].x;
         this.snakeYdelta = this.snake[0].y;
@@ -26,13 +28,25 @@ class Snake {
     };
 
 
+
+
+
+
     context() {
-       this.game.view.context.fillStyle = "white";
-       this.game.view.context.font = "60px Verdana";
-       this.game.view.context.fillText("Game over", 120, 300);
+        this.game.view.context.fillStyle = "white";
+        this.game.view.context.font = "60px Verdana";
+        this.game.view.context.fillText("Game over", 120, 300);
     }
 
 
+    foodEat() {
+        if (this.snakeXdelta === this.game.food.x && this.snakeYdelta === this.game.food.y) {
+            this.game.food.randomfood();
+            this.game.score.score++;
+        } else {
+            this.snakepop();
+        }
+    }
 
     goRight() {
         this.snakeXdelta += this.size;
@@ -63,10 +77,29 @@ class Snake {
         }
     };
 
-    snakepop(){
+    snakepop() {
         this.snake.pop();
 
-      }
+    }
+
+
+    theUpdateOfsneakHead() {
+        this.snake.unshift(this.shead);
+
+    }
+
+
+
+    sheadUpdate() {
+        this.shead = {
+            x: this.snake.snakeXdelta,
+            y: this.snake.snakeYdelta
+        };
+    }
+
+
+
+
 
     #insidThewall() {
         if (this.snakeXdelta < 0) {
@@ -116,9 +149,9 @@ class Snake {
             }
         });
 
-            
-        };
-;
+
+    };
+    ;
 
 
 
@@ -157,17 +190,15 @@ class Snake {
         if (dir === "down") this.goDown();
     }
 
-   
 
 
-    
 
 
-     
+
+
+
 
 };
-
-
 
 
 

@@ -1,6 +1,6 @@
 
 class Food {
-    constructor(size,game) {
+    constructor(size, game) {
         this.size = size;
         this.game = game;
         this.x = Math.floor((Math.random() * 17 + 1)) * size;
