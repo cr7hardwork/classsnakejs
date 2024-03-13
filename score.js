@@ -1,14 +1,14 @@
 class Score {
-    constructor(score, size, game) {
+    constructor(score, view) {
 
         this.score = score;
-        this.size = size;
-        this.game = game;
+        this.view = view;
     }
 
     drawScore() {
-        this.game.view.context.fillStyle = "black";
-        this.game.view.context.font = "15px Arial";
-        this.game.view.context.fillText("Score" + " " + this.score, this.game.view.canvas.width - 70, 20);
+        this.view.context.fillStyle = "black";
+        this.view.context.font = "15px Arial";
+        this.view.context.fillText("Score" + " " + this.score, this.view.canvas.width - 70, 20);
     }
+
 }

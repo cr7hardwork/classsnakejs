@@ -9,22 +9,17 @@ class Snake {
     }
 
     dir = "right";
-    constructor(size, game) {
+    constructor(size, game, view, foodview) {
+        this.view = view;
         this.game = game;
+        this.foodview = foodview;
+        this.size = size;
         this.snake[0] = {
             x: 9 * size,
             y: 10 * size,
         }
-
-
-
         this.snakeXdelta = this.snake[0].x;
         this.snakeYdelta = this.snake[0].y;
-
-        this.size = size;
-
-
-
     };
 
 
@@ -33,18 +28,18 @@ class Snake {
 
 
     context() {
-        this.game.view.context.fillStyle = "white";
-        this.game.view.context.font = "60px Verdana";
-        this.game.view.context.fillText("Game over", 120, 300);
+        this.view.context.fillStyle = "white";
+        this.view.context.font = "60px Verdana";
+        this.view.context.fillText("Game over", 120, 300);
     }
 
 
     foodEat() {
-        if (this.snakeXdelta === this.game.food.x && this.snakeYdelta === this.game.food.y) {
+        if (this.snakeXdelta === this.foodview.x && this.snakeYdelta === this.foodview.y) {
             this.game.food.randomfood();
             this.game.score.score++;
         } else {
-            this.snakepop();
+            this.snake.pop();
         }
     }
 
@@ -73,14 +68,9 @@ class Snake {
     snakeDraw() {
         for (let i = 0; i < this.snake.length; i++) {
             (this.game.view.context.fillStyle = i === 0 ? "black" : "red",
-                this.game.view.context.fillRect(this.snake[i].x, this.snake[i].y, 20, 20))
+                this.view.context.fillRect(this.snake[i].x, this.snake[i].y, 20, 20))
         }
     };
-
-    snakepop() {
-        this.snake.pop();
-
-    }
 
 
     theUpdateOfsneakHead() {
@@ -101,35 +91,35 @@ class Snake {
 
 
 
-    #insidThewall() {
+    insidThewall() {
         if (this.snakeXdelta < 0) {
-            this.snakeXdelta = this.game.view.canvas.width - this.size;
+            this.snakeXdelta = this.view.canvas.width - this.size;
         }
-        else if (this.snakeXdelta >= this.game.view.canvas.width) {
+        else if (this.snakeXdelta >= this.view.canvas.width) {
             this.snakeXdelta = 0;
         }
         else if (this.snakeYdelta < 0) {
-            this.snakeYdelta = this.game.view.canvas.height - this.size;
+            this.snakeYdelta = this.view.canvas.height - this.size;
         }
-        else if (this.snakeYdelta >= this.game.view.canvas.height) {
+        else if (this.snakeYdelta >= this.view.canvas.height) {
             this.snakeYdelta = 0;
         }
     }
 
 
-    #eatTail() {
+    eatTail() {
         for (let i = 1; i < this.snake.length; i++) {
             if (this.snakeXdelta === this.snake[i].x && this.snakeYdelta === this.snake[i].y) {
-                clearInterval(this.game.buttons.start);
+              this.game.gameOver();
                 this.context();
             }
         }
     }
 
-    #whenSnakehits() {
+    whenSnakehits() {
         if (this.snakeXdelta < this.size || this.snakeXdelta > this.size * 18 ||
             this.snakeYdelta < this.size || this.snakeYdelta > this.size * 18) {
-            clearInterval(this.game.buttons.start);
+          this.game.gameOver()
             this.context();
         }
     }
@@ -137,29 +127,17 @@ class Snake {
 
 
 
-    #checkBoxoptions() {
-        const chbox = document.getElementById("check")
-        const box = setInterval(() => {
-            if (chbox.checked) {
-                this.game.snake.#insidThewall()
-            }
-            else {
-                this.game.snake.#whenSnakehits();
-
-            }
-        });
-
-
-    };
-    ;
 
 
 
     allSnakeLogic() {
-        this.#checkBoxoptions();
-        this.#eatTail();
+
+        this.eatTail();
         this.directionChange(this.dir);
         this.mySnakeMove();
+        this.theUpdateOfsneakHead();
+        this.sheadUpdate();
+        this.upDate();
     }
 
 

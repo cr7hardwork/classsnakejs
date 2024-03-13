@@ -1,6 +1,9 @@
-canvas {
+
+
+div{
     display: flex;
     border: 1px solid black;
+ 
 }
 
 button {
@@ -20,3 +23,5 @@ label {
     font-size: 20px;
     color: red;
 }
+
+
