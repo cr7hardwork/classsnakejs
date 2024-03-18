@@ -9,10 +9,12 @@ class Snake {
     }
 
     dir = "right";
-    constructor(size, game, view, foodview) {
+    constructor(size, game, view, foodview,score,food) {
         this.view = view;
         this.game = game;
         this.foodview = foodview;
+        this.score = score;
+        this.food = food;
         this.size = size;
         this.snake[0] = {
             x: 9 * size,
@@ -36,8 +38,8 @@ class Snake {
 
     foodEat() {
         if (this.snakeXdelta === this.foodview.x && this.snakeYdelta === this.foodview.y) {
-            this.game.food.randomfood();
-            this.game.score.score++;
+            this.food.randomFood();
+            this.score.score++;
         } else {
             this.snake.pop();
         }

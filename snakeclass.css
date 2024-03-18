@@ -2,15 +2,18 @@
 
 div{
     display: flex;
-    border: 1px solid black;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid blue;
  
 }
 
 button {
+    display: flex;
     border-radius: 10px;
     margin: 5px;
     color: white;
-    background-color: red;
+    background-color: blue;
 }
 
 
@@ -21,7 +24,7 @@ button:hover {
 
 label {
     font-size: 20px;
-    color: red;
+    color: blue;
 }
 
 

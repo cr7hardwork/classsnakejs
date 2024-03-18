@@ -1,20 +1,16 @@
 class Buttons {
-  constructor(game) {
+  constructor(game,view) {
     this.game = game;
+    this.view = view;
     this.isGameStarted = false;
     this.start = null;
-    this.container = document.createElement("div1");
-    this.container.id = "mybuttons"
-    this.container.width = 100;
-    this.container.height = 50;
     this.theButtonsOfGame();
-    document.body.appendChild(this.container);
   }
 
   theButtonsOfGame() {
     this.creatLabel();
     this.creatCheck();
-    this.createStartButton();
+    this.createStartButton(this.view);
     this.createPauseButton();
     this.createResetButton();
   }
@@ -23,34 +19,34 @@ class Buttons {
     this.label = document.createElement("label");
     this.label.htmlFor = "check";
     this.label.textContent = "Through the wall";
-    this.container.appendChild(this.label);
+    this.view.Add(this.label);
   }
 
   creatCheck() {
     this.check = document.createElement("input");
     this.check.type = "checkbox";
     this.check.id = "check";
-    this.container.appendChild(this.check);
+    this.view.Add(this.check);
   }
 
   createStartButton() {
     this.buttonStart = document.createElement("button");
     this.buttonStart.textContent = "Start";
-    this.container.appendChild(this.buttonStart);
+    this.view.Add(this.buttonStart);
     this.buttonStart.addEventListener("click", () => this.theGameStart());
   }
 
   createResetButton() {
     this.buttonReset = document.createElement("button");
     this.buttonReset.textContent = "Reset";
-    this.container.appendChild(this.buttonReset);
+    this.view.Add(this.buttonReset);
     this.buttonReset.addEventListener("click", () => this.theGameReset());
   }
 
   createPauseButton() {
     this.buttonPause = document.createElement("button");
     this.buttonPause.textContent = "Pause";
-    this.container.appendChild(this.buttonPause);
+    this.view.Add(this.buttonPause);
     this.buttonPause.addEventListener("click", () => this.theGamePause());
   }
 
@@ -68,7 +64,7 @@ class Buttons {
       this.start = setInterval(this.game.theGameLogic.bind(this.game), 100);
     }
     this.isGameStarted = true;
-    this.container.removeChild(this.buttonStart)
+    this.view.container.removeChild(this.buttonStart)
   }
 
 
