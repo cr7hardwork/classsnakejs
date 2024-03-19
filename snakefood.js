@@ -1,6 +1,6 @@
 
 class Food {
-    constructor(size,foodview) {
+    constructor(size, foodview) {
         this.size = size;
         this.foodview = foodview;
 

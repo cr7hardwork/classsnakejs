@@ -1,5 +1,5 @@
 class FoodView {
-    constructor( size,view) {
+    constructor(size, view) {
         this.view = view;
         this.x = Math.floor((Math.random() * 17 + 1)) * size;
         this.y = Math.floor((Math.random() * 15 + 2)) * size;

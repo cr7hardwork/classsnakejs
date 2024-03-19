@@ -1,5 +1,5 @@
 class Buttons {
-  constructor(game,view) {
+  constructor(game, view) {
     this.game = game;
     this.view = view;
     this.isGameStarted = false;
@@ -51,6 +51,12 @@ class Buttons {
   }
 
 
+  theGameReset(){
+      this.game.score.score = 0;
+     this.game.snake.snakeXdelta = 270;
+     this.game.snake.snakeYdelta = 300;
+  
+};
 
 
   theGamePause() {

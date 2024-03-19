@@ -9,7 +9,7 @@ class Snake {
     }
 
     dir = "right";
-    constructor(size, game, view, foodview,score,food) {
+    constructor(size, game, view, foodview, score, food) {
         this.view = view;
         this.game = game;
         this.foodview = foodview;
@@ -112,7 +112,7 @@ class Snake {
     eatTail() {
         for (let i = 1; i < this.snake.length; i++) {
             if (this.snakeXdelta === this.snake[i].x && this.snakeYdelta === this.snake[i].y) {
-              this.game.gameOver();
+                this.game.gameOver();
                 this.context();
             }
         }
@@ -121,7 +121,7 @@ class Snake {
     whenSnakehits() {
         if (this.snakeXdelta < this.size || this.snakeXdelta > this.size * 18 ||
             this.snakeYdelta < this.size || this.snakeYdelta > this.size * 18) {
-          this.game.gameOver()
+            this.game.gameOver()
             this.context();
         }
     }

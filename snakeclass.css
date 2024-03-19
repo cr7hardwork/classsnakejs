@@ -1,12 +1,20 @@
-
-
-div{
+div {
     display: flex;
+    flex-direction: row;
     justify-content: flex-start;
+    flex-wrap: wrap;
     align-items: center;
     border: 1px solid blue;
- 
+    margin: 25px;
+
 }
+
+
+
+#addbutton{
+    margin-left: 23px;
+}
+
 
 button {
     display: flex;
@@ -14,6 +22,7 @@ button {
     margin: 5px;
     color: white;
     background-color: blue;
+    
 }
 
 
@@ -26,5 +35,3 @@ label {
     font-size: 20px;
     color: blue;
 }
-
-
