@@ -21,14 +21,7 @@ class Game {
     this.buttonSave = document.createElement("button");
     this.buttonSave.textContent = "Save";
     this.view.Add(this.buttonSave);
-    this.buttonSave.addEventListener("click", () => this.toSave());
-  }
-
-
-
-  toSave(){
-    localStorage.setItem("game",JSON.stringify(this.score.score));
-  
+    this.buttonSave.addEventListener("click", () => this.saveGame());
   }
 
   buttonToContinue() {
@@ -38,11 +31,19 @@ class Game {
     this.buttonContinue.addEventListener("click", () => this.toContinue());
   }
 
-
-  toContinue(){
-   let z =  localStorage.getItem("game");
-   console.log(z);
+  saveGame() {
+    localStorage.setItem("gameScore", JSON.stringify(this.score.score));
+    localStorage.setItem("snake", JSON.stringify(this.snake.snake));
   }
+  
+
+  toContinue() {
+    let gameScore = JSON.parse(localStorage.getItem("gameScore"));
+    let snake = JSON.parse(localStorage.getItem("snake"));
+    this.score.score = gameScore;
+    this.snake.snake = snake ;
+    this.buttons.theGameStart();
+}
 
 
   gameOver() {
@@ -77,6 +78,7 @@ class Game {
       this.snake.foodEat();
       this.snakeDraw();
       this.checkIfSnakeHitsOrGoInside();
+
     }
 
 
