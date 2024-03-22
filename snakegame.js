@@ -15,8 +15,6 @@ class Game {
 
 
 
-
-
   buttonSaveTheGame() {
     this.buttonSave = document.createElement("button");
     this.buttonSave.textContent = "Save";
@@ -35,15 +33,15 @@ class Game {
     localStorage.setItem("gameScore", JSON.stringify(this.score.score));
     localStorage.setItem("snake", JSON.stringify(this.snake.snake));
   }
-  
+
 
   toContinue() {
     let gameScore = JSON.parse(localStorage.getItem("gameScore"));
     let snake = JSON.parse(localStorage.getItem("snake"));
     this.score.score = gameScore;
-    this.snake.snake = snake ;
+    this.snake.snake = snake;
     this.buttons.theGameStart();
-}
+  }
 
 
   gameOver() {

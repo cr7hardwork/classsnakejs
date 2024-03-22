@@ -16,20 +16,28 @@ class Snake {
         this.score = score;
         this.food = food;
         this.size = size;
-        this.snake[0] = {
-            x: 9 * size,
-            y: 10 * size,
-        }
-        this.snakeXdelta = this.snake[0].x;
-        this.snakeYdelta = this.snake[0].y;
+
+        this.creatingTheHeadOfSnake(30);
+        this.whereIstheSnake();
     };
 
 
 
+    creatingTheHeadOfSnake(size) {
+        this.snake[0] = {
+            x: 9 * size,
+            y: 10 * size,
+        }
+    }
+
+    whereIstheSnake() {
+        this.snakeXdelta = this.snake[0].x;
+        this.snakeYdelta = this.snake[0].y;
+    }
 
 
 
-    context() {
+    theCanvasOption() {
         this.view.context.fillStyle = "white";
         this.view.context.font = "60px Verdana";
         this.view.context.fillText("Game over", 120, 300);
@@ -113,7 +121,8 @@ class Snake {
         for (let i = 1; i < this.snake.length; i++) {
             if (this.snakeXdelta === this.snake[i].x && this.snakeYdelta === this.snake[i].y) {
                 this.game.gameOver();
-                this.context();
+                this.theCanvasOption();
+
             }
         }
     }
@@ -122,7 +131,7 @@ class Snake {
         if (this.snakeXdelta < this.size || this.snakeXdelta > this.size * 18 ||
             this.snakeYdelta < this.size || this.snakeYdelta > this.size * 18) {
             this.game.gameOver()
-            this.context();
+            this.theCanvasOption();
         }
     }
 

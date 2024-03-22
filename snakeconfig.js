@@ -51,12 +51,14 @@ class Buttons {
   }
 
 
-  theGameReset(){
-      this.game.score.score = 0;
-     this.game.snake.snakeXdelta = 270;
-     this.game.snake.snakeYdelta = 300;
-  
-};
+  theGameReset() {
+    this.view.drawBackGroundImg();
+    this.game.score.score = 0;
+    this.game.snake.snake = [];
+    this.game.snake.creatingTheHeadOfSnake(30);
+    this.game.snake.whereIstheSnake();
+    this.theGameStart();
+  }
 
 
   theGamePause() {
@@ -70,7 +72,6 @@ class Buttons {
       this.start = setInterval(this.game.theGameLogic.bind(this.game), 100);
     }
     this.isGameStarted = true;
-    this.view.container.removeChild(this.buttonStart)
   }
 
 
