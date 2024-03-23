@@ -9,25 +9,35 @@ class Snake {
     }
 
     dir = "right";
-    constructor(size, game, view, foodview) {
+    constructor(size, game, view, foodview, score, food) {
         this.view = view;
         this.game = game;
         this.foodview = foodview;
+        this.score = score;
+        this.food = food;
         this.size = size;
-        this.snake[0] = {
-            x: 9 * size,
-            y: 10 * size,
-        }
-        this.snakeXdelta = this.snake[0].x;
-        this.snakeYdelta = this.snake[0].y;
+
+        this.creatingTheHeadOfSnake(30);
+        this.whereIstheSnake();
     };
 
 
 
+    creatingTheHeadOfSnake(size) {
+        this.snake[0] = {
+            x: 9 * size,
+            y: 10 * size,
+        }
+    }
+
+    whereIstheSnake() {
+        this.snakeXdelta = this.snake[0].x;
+        this.snakeYdelta = this.snake[0].y;
+    }
 
 
 
-    context() {
+    theCanvasOption() {
         this.view.context.fillStyle = "white";
         this.view.context.font = "60px Verdana";
         this.view.context.fillText("Game over", 120, 300);
@@ -36,8 +46,8 @@ class Snake {
 
     foodEat() {
         if (this.snakeXdelta === this.foodview.x && this.snakeYdelta === this.foodview.y) {
-            this.game.food.randomfood();
-            this.game.score.score++;
+            this.food.randomFood();
+            this.score.score++;
         } else {
             this.snake.pop();
         }
@@ -110,8 +120,9 @@ class Snake {
     eatTail() {
         for (let i = 1; i < this.snake.length; i++) {
             if (this.snakeXdelta === this.snake[i].x && this.snakeYdelta === this.snake[i].y) {
-              this.game.gameOver();
-                this.context();
+                this.game.gameOver();
+                this.theCanvasOption();
+
             }
         }
     }
@@ -119,8 +130,8 @@ class Snake {
     whenSnakehits() {
         if (this.snakeXdelta < this.size || this.snakeXdelta > this.size * 18 ||
             this.snakeYdelta < this.size || this.snakeYdelta > this.size * 18) {
-          this.game.gameOver()
-            this.context();
+            this.game.gameOver()
+            this.theCanvasOption();
         }
     }
 

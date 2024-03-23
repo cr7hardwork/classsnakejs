@@ -4,36 +4,13 @@ class Game {
     this.foodview = new FoodView(30, this.view);
     this.food = new Food(30, this.foodview);
     this.score = new Score(0, this.view);
-    this.snake = new Snake(30, this, this.view, this.foodview);
-    this.buttons = new Buttons(this);
-    this.container = document.createElement("div2");
-    document.body.appendChild(this.container);
-    this.buttontoAdd();
+    this.snake = new Snake(30, this, this.view, this.foodview, this.score, this.food);
+    this.buttons = new Buttons(this, this.view);
     this.buttonSaveTheGame();
+    this.buttonToContinue();
     this.itisgameover = false;
-   
+
   }
-
-
-  buttontoAdd() {
-    this.buttonAdd = document.createElement("button");
-    this.buttonAdd.textContent = "Add";
-    this.container.appendChild(this.buttonAdd);
-    this.buttonAdd.addEventListener("click", () => this.toAdd());
-  }
-
-
-
-  toAdd() {
-    this.game = new Game();
-    this.container.removeChild(this.buttonAdd);
-   
-  }
-   
-  
-
-
-
 
 
 
@@ -41,20 +18,37 @@ class Game {
   buttonSaveTheGame() {
     this.buttonSave = document.createElement("button");
     this.buttonSave.textContent = "Save";
-    this.container.appendChild(this.buttonSave);
-    this.buttonSave.addEventListener("click", () => this.toSave());
+    this.view.Add(this.buttonSave);
+    this.buttonSave.addEventListener("click", () => this.saveGame());
+  }
+
+  buttonToContinue() {
+    this.buttonContinue = document.createElement("button");
+    this.buttonContinue.textContent = "Continue";
+    this.view.Add(this.buttonContinue);
+    this.buttonContinue.addEventListener("click", () => this.toContinue());
+  }
+
+  saveGame() {
+    localStorage.setItem("gameScore", JSON.stringify(this.score.score));
+    localStorage.setItem("snake", JSON.stringify(this.snake.snake));
   }
 
 
+  toContinue() {
+    let gameScore = JSON.parse(localStorage.getItem("gameScore"));
+    let snake = JSON.parse(localStorage.getItem("snake"));
+    this.score.score = gameScore;
+    this.snake.snake = snake;
+    this.buttons.theGameStart();
+  }
 
- 
+
+  gameOver() {
+    this.itisgameover = true;
 
 
-gameOver(){
-  this.itisgameover = true;
-
-
-}
+  }
 
 
 
@@ -74,19 +68,20 @@ gameOver(){
 
 
   theGameLogic() {
-    if(!this.itisgameover){
-    this.view.drawBackGroundImg();
-    this.snake.allSnakeLogic();
-    this.foodview.drawFood();
-    this.score.drawScore();
-    this.snake.foodEat();
-    this.snakeDraw();
-    this.checkIfSnakeHitsOrGoInside();
-  }
+    if (!this.itisgameover) {
+      this.view.drawBackGroundImg();
+      this.snake.allSnakeLogic();
+      this.foodview.drawFood();
+      this.score.drawScore();
+      this.snake.foodEat();
+      this.snakeDraw();
+      this.checkIfSnakeHitsOrGoInside();
+
+    }
 
 
 
-};
+  };
 
 };
 
