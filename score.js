@@ -11,4 +11,12 @@ class Score {
         this.view.context.fillText("Score" + " " + this.score, this.view.canvas.width - 70, 20);
     }
 
+
+
+    incrementScore(){
+        this.score++
+    }
+
+
+
 }

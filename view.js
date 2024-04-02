@@ -19,14 +19,16 @@ class View {
     this.context = this.canvas.getContext("2d");
   }
 
+
+
   drawBackGroundImg() {
     this.context.drawImage(this.img, 0, 0);
   }
 
 
 
-  Add(HtmElement) {
-    this.container.appendChild(HtmElement);
+  add(htmElement) {
+    this.container.appendChild(htmElement);
   }
 
 

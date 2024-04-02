@@ -8,24 +8,33 @@ class Game {
     this.buttons = new Buttons(this, this.view);
     this.buttonSaveTheGame();
     this.buttonToContinue();
-    this.itisgameover = false;
+    this.ItIsGameOver = false;
 
   }
 
 
 
+  toResetGame() {
+    this.score.score = 0;
+    this.snake.snake = [];
+    this.snake.createTheHeadOfSnake(30);
+    this.snake.whereIstheSnake();
+    this.food.randomFood();
+    this.view.drawBackGroundImg();
+  }
+
 
   buttonSaveTheGame() {
     this.buttonSave = document.createElement("button");
     this.buttonSave.textContent = "Save";
-    this.view.Add(this.buttonSave);
+    this.view.add(this.buttonSave);
     this.buttonSave.addEventListener("click", () => this.saveGame());
   }
 
   buttonToContinue() {
     this.buttonContinue = document.createElement("button");
     this.buttonContinue.textContent = "Continue";
-    this.view.Add(this.buttonContinue);
+    this.view.add(this.buttonContinue);
     this.buttonContinue.addEventListener("click", () => this.toContinue());
   }
 
@@ -45,7 +54,7 @@ class Game {
 
 
   gameOver() {
-    this.itisgameover = true;
+    this.ItIsGameOver = true;
 
 
   }
@@ -68,22 +77,21 @@ class Game {
 
 
   theGameLogic() {
-    if (!this.itisgameover) {
-      this.view.drawBackGroundImg();
-      this.snake.allSnakeLogic();
-      this.foodview.drawFood();
-      this.score.drawScore();
-      this.snake.foodEat();
-      this.snakeDraw();
-      this.checkIfSnakeHitsOrGoInside();
+    this.view.drawBackGroundImg();
+    this.snake.allSnakeLogic();
+    this.foodview.drawFood();
+    this.score.drawScore();
+    this.snake.foodEat();
+    this.snakeDraw();
+    this.checkIfSnakeHitsOrGoInside();
 
-    }
-
+  }
 
 
-  };
 
 };
+
+
 
 
 

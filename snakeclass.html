@@ -3,11 +3,10 @@
 
 <head>
     <title>updating snake</title>
+    <link rel="stylesheet" href="snakeclass.css">
 </head>
 
 <body>
-    <link rel="stylesheet" href="snakeclass.css">
-    <script src="addbutton.js"></script>
     <script src="foodview.js"></script>
     <script src="snake.js"></script>
     <script src="score.js"></script>
@@ -15,8 +14,19 @@
     <script src="snakefood.js"></script>
     <script src="view.js"></script>
     <script src="snakegame.js"></script>
-    
-</body>
 
+    <script>
+        let theButtonAdd = document.createElement("button");
+        theButtonAdd.textContent = "Add";
+        theButtonAdd.id = "addbutton";
+        document.body.appendChild(theButtonAdd);
+        theButtonAdd.addEventListener("click", buttonAdd);
+
+        function buttonAdd(){
+            this.game = new Game();
+        }
+       
+    </script>
+</body>
 
 </html>

@@ -17,13 +17,13 @@ class Snake {
         this.food = food;
         this.size = size;
 
-        this.creatingTheHeadOfSnake(30);
+        this.createTheHeadOfSnake(30);
         this.whereIstheSnake();
     };
 
 
 
-    creatingTheHeadOfSnake(size) {
+    createTheHeadOfSnake(size) {
         this.snake[0] = {
             x: 9 * size,
             y: 10 * size,
@@ -37,7 +37,7 @@ class Snake {
 
 
 
-    theCanvasOption() {
+    drawContextStyleFontText() {
         this.view.context.fillStyle = "white";
         this.view.context.font = "60px Verdana";
         this.view.context.fillText("Game over", 120, 300);
@@ -47,7 +47,7 @@ class Snake {
     foodEat() {
         if (this.snakeXdelta === this.foodview.x && this.snakeYdelta === this.foodview.y) {
             this.food.randomFood();
-            this.score.score++;
+            this.score.incrementScore();
         } else {
             this.snake.pop();
         }
@@ -120,8 +120,8 @@ class Snake {
     eatTail() {
         for (let i = 1; i < this.snake.length; i++) {
             if (this.snakeXdelta === this.snake[i].x && this.snakeYdelta === this.snake[i].y) {
-                this.game.gameOver();
-                this.theCanvasOption();
+                clearInterval(this.game.buttons.start);
+                this.drawContextStyleFontText();
 
             }
         }
@@ -130,8 +130,8 @@ class Snake {
     whenSnakehits() {
         if (this.snakeXdelta < this.size || this.snakeXdelta > this.size * 18 ||
             this.snakeYdelta < this.size || this.snakeYdelta > this.size * 18) {
-            this.game.gameOver()
-            this.theCanvasOption();
+            clearInterval(this.game.buttons.start);
+            this.drawContextStyleFontText();
         }
     }
 

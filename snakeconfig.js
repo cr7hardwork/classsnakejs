@@ -10,7 +10,7 @@ class Buttons {
   theButtonsOfGame() {
     this.creatLabel();
     this.creatCheck();
-    this.createStartButton(this.view);
+    this.createStartButton();
     this.createPauseButton();
     this.createResetButton();
   }
@@ -19,46 +19,46 @@ class Buttons {
     this.label = document.createElement("label");
     this.label.htmlFor = "check";
     this.label.textContent = "Through the wall";
-    this.view.Add(this.label);
+    this.view.add(this.label);
   }
 
   creatCheck() {
     this.check = document.createElement("input");
     this.check.type = "checkbox";
     this.check.id = "check";
-    this.view.Add(this.check);
+    this.view.add(this.check);
   }
 
   createStartButton() {
     this.buttonStart = document.createElement("button");
     this.buttonStart.textContent = "Start";
-    this.view.Add(this.buttonStart);
+    this.view.add(this.buttonStart);
     this.buttonStart.addEventListener("click", () => this.theGameStart());
   }
 
   createResetButton() {
     this.buttonReset = document.createElement("button");
     this.buttonReset.textContent = "Reset";
-    this.view.Add(this.buttonReset);
+    this.view.add(this.buttonReset);
     this.buttonReset.addEventListener("click", () => this.theGameReset());
   }
+
+  theGameReset() {
+    this.game.toResetGame();
+    this.theGamePause();
+  }
+
 
   createPauseButton() {
     this.buttonPause = document.createElement("button");
     this.buttonPause.textContent = "Pause";
-    this.view.Add(this.buttonPause);
+    this.view.add(this.buttonPause);
     this.buttonPause.addEventListener("click", () => this.theGamePause());
   }
 
 
-  theGameReset() {
-    this.view.drawBackGroundImg();
-    this.game.score.score = 0;
-    this.game.snake.snake = [];
-    this.game.snake.creatingTheHeadOfSnake(30);
-    this.game.snake.whereIstheSnake();
-    this.theGameStart();
-  }
+
+
 
 
   theGamePause() {
@@ -72,8 +72,10 @@ class Buttons {
       this.start = setInterval(this.game.theGameLogic.bind(this.game), 100);
     }
     this.isGameStarted = true;
+
   }
 
 
-};
 
+
+};
