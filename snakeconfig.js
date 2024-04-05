@@ -5,6 +5,7 @@ class Buttons {
     this.isGameStarted = false;
     this.start = null;
     this.theButtonsOfGame();
+
   }
 
   theButtonsOfGame() {
@@ -26,6 +27,7 @@ class Buttons {
     this.check = document.createElement("input");
     this.check.type = "checkbox";
     this.check.id = "check";
+    this.check.checked = "true"
     this.view.add(this.check);
   }
 
@@ -38,7 +40,9 @@ class Buttons {
 
   createResetButton() {
     this.buttonReset = document.createElement("button");
+    this.buttonReset.id = "reset"
     this.buttonReset.textContent = "Reset";
+    this.buttonReset.style.visibility = "hidden"
     this.view.add(this.buttonReset);
     this.buttonReset.addEventListener("click", () => this.theGameReset());
   }
@@ -46,11 +50,15 @@ class Buttons {
   theGameReset() {
     this.game.toResetGame();
     this.theGamePause();
+    this.HideButtons();
+  
   }
 
 
   createPauseButton() {
     this.buttonPause = document.createElement("button");
+    this.buttonPause.id = "pause"
+    this.buttonPause.style.visibility = "hidden";
     this.buttonPause.textContent = "Pause";
     this.view.add(this.buttonPause);
     this.buttonPause.addEventListener("click", () => this.theGamePause());
@@ -58,18 +66,32 @@ class Buttons {
 
 
 
+  ShowButtons() {
+    document.getElementById("reset").style.visibility = "visible"
+    document.getElementById("save").style.visibility = "visible";
+    document.getElementById("continue").style.visibility = "visible";
+  }
 
 
+  HideButtons(){
+    document.getElementById("pause").style.visibility = "hidden";
+    document.getElementById("reset").style.visibility = "hidden";
+    document.getElementById("save").style.visibility = "hidden";
+
+  }
 
   theGamePause() {
     clearInterval(this.start);
     this.isGameStarted = false;
+    this.ShowButtons();
   }
 
 
   theGameStart() {
     if (!this.isGameStarted) {
       this.start = setInterval(this.game.theGameLogic.bind(this.game), 100);
+      document.getElementById("pause").style.visibility = "visible";
+
     }
     this.isGameStarted = true;
 

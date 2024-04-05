@@ -20,11 +20,20 @@ class View {
   }
 
 
-
   drawBackGroundImg() {
     this.context.drawImage(this.img, 0, 0);
   }
 
+  clearCanvas() {
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+  }
+
+
+  theTextofCanvas() {
+    this.context.fillStyle = "white";
+    this.context.font = "60px Verdana";
+    this.context.fillText("Game over", 120, 300);
+  }
 
 
   add(htmElement) {

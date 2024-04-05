@@ -11,6 +11,4 @@ class Food {
         this.foodview.y = Math.floor((Math.random() * 15 + 2)) * this.size;
     }
 
-
-
 }

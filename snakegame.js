@@ -6,34 +6,35 @@ class Game {
     this.score = new Score(0, this.view);
     this.snake = new Snake(30, this, this.view, this.foodview, this.score, this.food);
     this.buttons = new Buttons(this, this.view);
-    this.buttonSaveTheGame();
-    this.buttonToContinue();
-    this.ItIsGameOver = false;
-
+    this.CreateaSaveButton();
+    this.CreateaContinueButton();
   }
-
-
 
   toResetGame() {
     this.score.score = 0;
     this.snake.snake = [];
-    this.snake.createTheHeadOfSnake(30);
-    this.snake.whereIstheSnake();
+    this.snake.aHeadofSnake(30);
+    this.snake.theSnakePosition();
     this.food.randomFood();
-    this.view.drawBackGroundImg();
+    this.view.clearCanvas();
+
+
   }
 
-
-  buttonSaveTheGame() {
+  CreateaSaveButton() {
     this.buttonSave = document.createElement("button");
+    this.buttonSave.id = "save";
     this.buttonSave.textContent = "Save";
+    this.buttonSave.style.visibility = "hidden";
     this.view.add(this.buttonSave);
     this.buttonSave.addEventListener("click", () => this.saveGame());
   }
 
-  buttonToContinue() {
+  CreateaContinueButton() {
     this.buttonContinue = document.createElement("button");
+    this.buttonContinue.id = "continue";
     this.buttonContinue.textContent = "Continue";
+    this.buttonContinue.style.visibility = "hidden";
     this.view.add(this.buttonContinue);
     this.buttonContinue.addEventListener("click", () => this.toContinue());
   }
@@ -43,31 +44,33 @@ class Game {
     localStorage.setItem("snake", JSON.stringify(this.snake.snake));
   }
 
-
   toContinue() {
-    let gameScore = JSON.parse(localStorage.getItem("gameScore"));
-    let snake = JSON.parse(localStorage.getItem("snake"));
-    this.score.score = gameScore;
-    this.snake.snake = snake;
-    this.buttons.theGameStart();
+    const gameScore = JSON.parse(localStorage.getItem("gameScore"));
+    const snake = JSON.parse(localStorage.getItem("snake"));
+
+    if (gameScore && snake) {
+      this.score.score = gameScore;
+      this.snake.snake = snake;
+      this.buttons.theGameStart();
+    } else {
+      console.error("No saved game data found.");
+    }
   }
 
 
-  gameOver() {
-    this.ItIsGameOver = true;
 
-
+  itsOver() {
+    clearInterval(this.buttons.start)
+    this.view.theTextofCanvas();
   }
-
-
 
 
   checkIfSnakeHitsOrGoInside() {
     const chbox = document.getElementById("check");
     if (chbox.checked) {
-      this.snake.insidThewall();
+      this.snake.myInsideTheWall();
     } else {
-      this.snake.whenSnakehits();
+      this.snake.myWhenSnakeHits();
     }
   }
 
@@ -88,12 +91,6 @@ class Game {
   }
 
 
-
 };
-
-
-
-
-
 
 const game = new Game();

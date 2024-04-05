@@ -10,13 +10,26 @@ div {
 }
 
 
-
 #addbutton {
-    margin-left: 23px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    position: fixed;
+    top: 20px;
+    left: 35%;
+    font-size: 16px;
+    border-radius: 10px;
+    color: white;
+    background-color: blue;
 }
 
+
+#closebutton{
+    position: fixed;
+    bottom: 90%;
+    left: 35%;
+    font-size: 16px;
+    border-radius: 10px;
+    color: white;
+    background-color: blue;
+}
 
 button {
     display: flex;

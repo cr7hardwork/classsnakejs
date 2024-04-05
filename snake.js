@@ -7,7 +7,7 @@ class Snake {
         y: this.snakeYdelta
 
     }
-
+    
     dir = "right";
     constructor(size, game, view, foodview, score, food) {
         this.view = view;
@@ -17,31 +17,24 @@ class Snake {
         this.food = food;
         this.size = size;
 
-        this.createTheHeadOfSnake(30);
-        this.whereIstheSnake();
+        this.aHeadofSnake(30);
+        this.theSnakePosition();
     };
 
 
 
-    createTheHeadOfSnake(size) {
+    aHeadofSnake(size) {
         this.snake[0] = {
             x: 9 * size,
             y: 10 * size,
         }
     }
 
-    whereIstheSnake() {
+    theSnakePosition() {
         this.snakeXdelta = this.snake[0].x;
         this.snakeYdelta = this.snake[0].y;
     }
 
-
-
-    drawContextStyleFontText() {
-        this.view.context.fillStyle = "white";
-        this.view.context.font = "60px Verdana";
-        this.view.context.fillText("Game over", 120, 300);
-    }
 
 
     foodEat() {
@@ -89,7 +82,6 @@ class Snake {
     }
 
 
-
     sheadUpdate() {
         this.shead = {
             x: this.snake.snakeXdelta,
@@ -98,10 +90,7 @@ class Snake {
     }
 
 
-
-
-
-    insidThewall() {
+    #insidThewall() {
         if (this.snakeXdelta < 0) {
             this.snakeXdelta = this.view.canvas.width - this.size;
         }
@@ -117,40 +106,44 @@ class Snake {
     }
 
 
-    eatTail() {
+
+myInsideTheWall(){
+    this.#insidThewall();
+}
+
+
+myWhenSnakeHits(){
+    this.#whenSnakehits();
+}
+
+
+
+    #eatTail() {
         for (let i = 1; i < this.snake.length; i++) {
             if (this.snakeXdelta === this.snake[i].x && this.snakeYdelta === this.snake[i].y) {
-                clearInterval(this.game.buttons.start);
-                this.drawContextStyleFontText();
+                this.game.itsOver();
 
             }
         }
     }
 
-    whenSnakehits() {
+    #whenSnakehits() {
         if (this.snakeXdelta < this.size || this.snakeXdelta > this.size * 18 ||
             this.snakeYdelta < this.size || this.snakeYdelta > this.size * 18) {
-            clearInterval(this.game.buttons.start);
-            this.drawContextStyleFontText();
+                this.game.itsOver();
         }
     }
 
 
 
-
-
-
-
     allSnakeLogic() {
-
-        this.eatTail();
+        this.#eatTail();
         this.directionChange(this.dir);
         this.mySnakeMove();
         this.theUpdateOfsneakHead();
         this.sheadUpdate();
         this.upDate();
     }
-
 
 
     mySnakeMove() {
@@ -178,12 +171,6 @@ class Snake {
         if (dir === "up") this.goUp();
         if (dir === "down") this.goDown();
     }
-
-
-
-
-
-
 
 
 

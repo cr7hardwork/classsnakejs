@@ -2,31 +2,45 @@
 <html>
 
 <head>
-    <title>updating snake</title>
+    <title>Snake Game</title>
     <link rel="stylesheet" href="snakeclass.css">
 </head>
 
 <body>
+
     <script src="foodview.js"></script>
     <script src="snake.js"></script>
     <script src="score.js"></script>
+    <script src="scoreview.js"></script>
     <script src="snakeconfig.js"></script>
     <script src="snakefood.js"></script>
     <script src="view.js"></script>
     <script src="snakegame.js"></script>
 
-    <script>
-        let theButtonAdd = document.createElement("button");
-        theButtonAdd.textContent = "Add";
-        theButtonAdd.id = "addbutton";
-        document.body.appendChild(theButtonAdd);
-        theButtonAdd.addEventListener("click", buttonAdd);
-
-        function buttonAdd(){
-            this.game = new Game();
-        }
-       
-    </script>
+    
 </body>
+<script>
+    let theButtonAdd = document.createElement("button");
+    theButtonAdd.textContent = "Add";
+    theButtonAdd.id = "addbutton";
+    document.body.appendChild(theButtonAdd);
+    theButtonAdd.addEventListener("click", buttonAdd);
 
+
+    
+    function buttonAdd() {
+        this.game = new Game();
+    }
+
+
+   /* let theButtonClose = document.createElement("button");
+    theButtonClose.textContent = "Close";
+    theButtonClose.id = "closebutton";
+    document.body.appendChild(theButtonClose);
+    theButtonClose.addEventListener("click", buttonClose);
+
+   */
+   
+    
+</script>
 </html>
