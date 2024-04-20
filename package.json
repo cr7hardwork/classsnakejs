@@ -21,7 +21,7 @@
     "@angular/platform-browser": "^17.3.5",
     "@angular/platform-browser-dynamic": "^17.3.5",
     "@angular/router": "^17.3.5",
-    "@ng-select/ng-select": "^11.2.0",
+    "@ng-select/ng-select": "^12.0.7",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "rxjs": "~7.5.0",
