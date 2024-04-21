@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, provideClientHydration} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -27,7 +27,8 @@ import {INITIALIZATION_PROVIDERS} from "@core/initialize/app.initialize";
   ],
   providers: [
     ...INTERCEPTORS,
-    ...INITIALIZATION_PROVIDERS
+    ...INITIALIZATION_PROVIDERS,
+    provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })
