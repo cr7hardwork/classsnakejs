@@ -21,15 +21,7 @@ div {
 }
 
 
-#closebutton{
-    position: fixed;
-    bottom: 90%;
-    left: 35%;
-    font-size: 16px;
-    border-radius: 10px;
-    color: white;
-    background-color: blue;
-}
+
 
 button {
     display: flex;

@@ -50,7 +50,7 @@ class Buttons {
   theGameReset() {
     this.game.toResetGame();
     this.theGamePause();
-    this.HideButtons();
+   this.HideButtons();
   
   }
 
@@ -85,6 +85,7 @@ class Buttons {
     this.isGameStarted = false;
     this.ShowButtons();
   }
+
 
 
   theGameStart() {

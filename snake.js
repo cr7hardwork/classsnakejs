@@ -1,5 +1,4 @@
 
-
 class Snake {
     snake = [];
     shead = {
@@ -7,7 +6,7 @@ class Snake {
         y: this.snakeYdelta
 
     }
-    
+
     dir = "right";
     constructor(size, game, view, foodview, score, food) {
         this.view = view;
@@ -90,7 +89,7 @@ class Snake {
     }
 
 
-    #insidThewall() {
+    insidThewall() {
         if (this.snakeXdelta < 0) {
             this.snakeXdelta = this.view.canvas.width - this.size;
         }
@@ -106,18 +105,6 @@ class Snake {
     }
 
 
-
-myInsideTheWall(){
-    this.#insidThewall();
-}
-
-
-myWhenSnakeHits(){
-    this.#whenSnakehits();
-}
-
-
-
     #eatTail() {
         for (let i = 1; i < this.snake.length; i++) {
             if (this.snakeXdelta === this.snake[i].x && this.snakeYdelta === this.snake[i].y) {
@@ -127,10 +114,10 @@ myWhenSnakeHits(){
         }
     }
 
-    #whenSnakehits() {
+    whenSnakehits() {
         if (this.snakeXdelta < this.size || this.snakeXdelta > this.size * 18 ||
             this.snakeYdelta < this.size || this.snakeYdelta > this.size * 18) {
-                this.game.itsOver();
+            this.game.itsOver();
         }
     }
 

@@ -14,6 +14,7 @@ class View {
     this.canvas.height = 608;
     this.container.style.width = "608px";
     this.container.style.height = "608px";
+    this.container.id  = "container"
     this.container.appendChild(this.canvas);
     document.body.appendChild(this.container);
     this.context = this.canvas.getContext("2d");
@@ -27,6 +28,7 @@ class View {
   clearCanvas() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
   }
+
 
 
   theTextofCanvas() {
