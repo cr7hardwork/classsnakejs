@@ -5,12 +5,15 @@ class Buttons {
     this.isGameStarted = false;
     this.start = null;
     this.theButtonsOfGame();
-
+   
   }
 
   theButtonsOfGame() {
     this.creatLabel();
     this.creatCheck();
+    this.createLoginAndPasswordInputs();
+    this.createSubmitButton();
+
     this.createStartButton();
     this.createPauseButton();
     this.createResetButton();
@@ -34,6 +37,7 @@ class Buttons {
   createStartButton() {
     this.buttonStart = document.createElement("button");
     this.buttonStart.textContent = "Start";
+    this.buttonStart.disabled = true;
     this.view.add(this.buttonStart);
     this.buttonStart.addEventListener("click", () => this.theGameStart());
   }
@@ -86,6 +90,38 @@ class Buttons {
     this.ShowButtons();
   }
 
+
+
+  createLoginAndPasswordInputs() {
+    this.loginInput = document.createElement("input");
+    this.loginInput.type = "text";
+    this.loginInput.placeholder = "Login";
+    this.view.add(this.loginInput);
+
+    this.passwordInput = document.createElement("input");
+    this.passwordInput.type = "password";
+    this.passwordInput.placeholder = "Password";
+    this.view.add(this.passwordInput);
+  }
+
+  createSubmitButton() {
+    this.submitButton = document.createElement("button");
+    this.submitButton.textContent = "Submit";
+    this.view.add(this.submitButton);
+
+    this.submitButton.addEventListener("click", () => {
+      const login = this.loginInput.value;
+      const password = this.passwordInput.value;
+  
+      if (login === "Davo" && password === "233733") {
+        this.theGameStart();
+      } else {
+        alert("its wrong login or password")
+        this.loginInput.value = "";
+        this.passwordInput.value = "";
+      }
+    });
+  }
 
 
   theGameStart() {

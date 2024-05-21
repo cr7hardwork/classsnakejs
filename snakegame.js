@@ -6,26 +6,19 @@ class Game {
     this.score = new Score(0, this.view);
     this.snake = new Snake(30, this, this.view, this.foodview, this.score, this.food);
     this.buttons = new Buttons(this, this.view);
-    this.SaveCloseContinueButtons();
+    this.SaveContinueButtons();
     this.db = null;
     this.creatIndexedDb();
   }
 
 
-  SaveCloseContinueButtons() {
+  SaveContinueButtons() {
     this.CreateaSaveButton();
     this.CreateaContinueButton();
-    this.createCloseButton();
   }
 
 
-  createCloseButton() {
-    this.buttonOnClose = document.createElement("button");
-    this.buttonOnClose.textContent = "Close";
-    this.view.add(this.buttonOnClose);
-    this.buttonOnClose.addEventListener("click", () => this.closeGameBoard());
-  }
-
+ 
 
   CreateaSaveButton() {
     this.buttonSave = document.createElement("button");
