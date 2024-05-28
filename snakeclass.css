@@ -50,3 +50,25 @@ input{
     
 
 }
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 280px;
+}
+
+#loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#button-submit {
+    margin: 10px;
+    background-color: red;
+}
