@@ -9,6 +9,12 @@ div {
 }
 
 
+body{
+    background-image: url(https://www.worldatlas.com/upload/a4/91/91/shutterstock-1708408498.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+
 #addbutton {
     position: fixed;
     top: 20px;
@@ -60,8 +66,6 @@ input{
     justify-content: center;
     align-items: center;
     padding:  300px;
-    background-image: url(https://www.worldatlas.com/upload/a4/91/91/shutterstock-1708408498.jpg);
-    background-size: cover;
-    background-repeat: repeat;
+  
 }
 
