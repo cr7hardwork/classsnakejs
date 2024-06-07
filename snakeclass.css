@@ -4,7 +4,7 @@ div {
     justify-content: flex-start;
     flex-wrap: wrap;
     align-items: center;
-    border: 1px solid blue;
+    border: 1px solid white;
 
 }
 
@@ -21,32 +21,34 @@ body{
     left: 35%;
     font-size: 16px;
     border-radius: 10px;
-    color: white;
-    background-color: blue;
+    color: blue;
+    background-color: white;
 }
 
 
-
+#addbutton:hover{
+    background-color: yellow;
+}
 
 button {
     display: flex;
     border-radius: 10px;
     margin: 5px;
-    color: white;
-    background-color: blue;
+    color: blue;
+    background-color:white;
 
 
 }
 
 
 button:hover {
-    background-color: black
+    background-color: yellow
 }
 
 
 label {
     font-size: 20px;
-    color: blue;
+    color: white;
     
 }
 
