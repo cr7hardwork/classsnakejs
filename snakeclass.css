@@ -5,7 +5,6 @@ div {
     flex-wrap: wrap;
     align-items: center;
     border: 1px solid blue;
-    margin: 25px;
 
 }
 
@@ -30,6 +29,7 @@ button {
     color: white;
     background-color: blue;
 
+
 }
 
 
@@ -41,6 +41,7 @@ button:hover {
 label {
     font-size: 20px;
     color: blue;
+    
 }
 
 
@@ -51,24 +52,16 @@ input{
 
 }
 
-.login-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    padding: 280px;
-}
+
 
 #loginForm{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding:  300px;
+    background-image: url(https://www.worldatlas.com/upload/a4/91/91/shutterstock-1708408498.jpg);
+    background-size: cover;
+    background-repeat: repeat;
 }
 
-
-#button-submit {
-    margin: 10px;
-    background-color: red;
-}
