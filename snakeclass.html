@@ -17,70 +17,13 @@
     <script src="snakeconfig.js"></script>
     <script src="snakefood.js"></script>
     <script src="snakegame.js"></script>
-
+    <script src="loginpassword.js"></script>
     
 
 
 
 </body>
 <script>
-
-const form = document.createElement("form");
-form.id = "loginForm"
-
-const usernameLabel = document.createElement("label");
-usernameLabel.textContent = "Username:";
-form.appendChild(usernameLabel);
-
-const usernameInput = document.createElement("input");
-usernameInput.type  = "text";
-usernameInput.id = "username"
-form.appendChild(usernameInput);
-
-const passwordLabel = document.createElement("label");
-passwordLabel.textContent = "Password:";
-form.appendChild(passwordLabel);
-
-const passwordInput = document.createElement("input");
-passwordInput.type =  "password";
-passwordInput.id = "password"
-form.appendChild(passwordInput);
-
-const submitButton = document.createElement("button");
-submitButton.textContent = "Login"
-submitButton.type =  "submit";
-form.appendChild(submitButton);
-
-document.body.appendChild(form);
-
-
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const usernameInput = document.getElementById("username").value;
-        const passwordInput = document.getElementById("password").value;
-
-        if (usernameInput === "Davo" && passwordInput === "233733") {
-            document.getElementById("loginForm").style.display = "none";
-            let game = new Game();
-            let theButtonAdd = document.createElement("button");
-            theButtonAdd.textContent = "Add";
-            theButtonAdd.id = "addbutton";
-            document.body.appendChild(theButtonAdd);
-            theButtonAdd.addEventListener("click", buttonAdd);
-
-        } else {
-            alert("Try one more time :)");
-            login.value = "";
-            password.value = "";
-        }
-    });
-
-
-    function buttonAdd(){
-        let game = new Game()
-    }
-   
-
 
 
   

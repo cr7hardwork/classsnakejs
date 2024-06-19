@@ -71,3 +71,21 @@ input{
   
 }
 
+
+
+#logOutButton {
+
+    position: fixed;
+    top: 50px;
+    left: 35%;
+    font-size: 16px;
+    border-radius: 10px;
+    color: blue;
+    background-color: white;
+
+
+}
+
+#logOutButton:hover{
+    background-color: yellow;
+}
