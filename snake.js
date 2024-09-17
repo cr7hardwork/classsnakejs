@@ -1,5 +1,4 @@
 
-
 class Snake {
     snake = [];
     shead = {
@@ -9,35 +8,38 @@ class Snake {
     }
 
     dir = "right";
-    constructor(size, game, view, foodview) {
+    constructor(size, game, view, foodview, score, food) {
         this.view = view;
         this.game = game;
         this.foodview = foodview;
+        this.score = score;
+        this.food = food;
         this.size = size;
-        this.snake[0] = {
-            x: 9 * size,
-            y: 10 * size,
-        }
-        this.snakeXdelta = this.snake[0].x;
-        this.snakeYdelta = this.snake[0].y;
+
+        this.aHeadofSnake(30);
+        this.theSnakePosition();
     };
 
 
 
-
-
-
-    context() {
-        this.view.context.fillStyle = "white";
-        this.view.context.font = "60px Verdana";
-        this.view.context.fillText("Game over", 120, 300);
+    aHeadofSnake(size) {
+        this.snake[0] = {
+            x: 9 * size,
+            y: 10 * size,
+        }
     }
+
+    theSnakePosition() {
+        this.snakeXdelta = this.snake[0].x;
+        this.snakeYdelta = this.snake[0].y;
+    }
+
 
 
     foodEat() {
         if (this.snakeXdelta === this.foodview.x && this.snakeYdelta === this.foodview.y) {
-            this.game.food.randomfood();
-            this.game.score.score++;
+            this.food.randomFood();
+            this.score.incrementScore();
         } else {
             this.snake.pop();
         }
@@ -79,16 +81,12 @@ class Snake {
     }
 
 
-
     sheadUpdate() {
         this.shead = {
             x: this.snake.snakeXdelta,
             y: this.snake.snakeYdelta
         };
     }
-
-
-
 
 
     insidThewall() {
@@ -107,11 +105,11 @@ class Snake {
     }
 
 
-    eatTail() {
+    #eatTail() {
         for (let i = 1; i < this.snake.length; i++) {
             if (this.snakeXdelta === this.snake[i].x && this.snakeYdelta === this.snake[i].y) {
-              this.game.gameOver();
-                this.context();
+                this.game.itsOver();
+
             }
         }
     }
@@ -119,27 +117,20 @@ class Snake {
     whenSnakehits() {
         if (this.snakeXdelta < this.size || this.snakeXdelta > this.size * 18 ||
             this.snakeYdelta < this.size || this.snakeYdelta > this.size * 18) {
-          this.game.gameOver()
-            this.context();
+            this.game.itsOver();
         }
     }
 
 
 
-
-
-
-
     allSnakeLogic() {
-
-        this.eatTail();
+        this.#eatTail();
         this.directionChange(this.dir);
         this.mySnakeMove();
         this.theUpdateOfsneakHead();
         this.sheadUpdate();
         this.upDate();
     }
-
 
 
     mySnakeMove() {
@@ -167,12 +158,6 @@ class Snake {
         if (dir === "up") this.goUp();
         if (dir === "down") this.goDown();
     }
-
-
-
-
-
-
 
 
 

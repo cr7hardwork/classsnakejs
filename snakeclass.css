@@ -1,27 +1,91 @@
-
-
-div{
+div {
     display: flex;
-    border: 1px solid black;
- 
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid white;
+
+}
+
+
+body{
+    background-image: url(https://www.worldatlas.com/upload/a4/91/91/shutterstock-1708408498.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+
+#addbutton {
+    position: fixed;
+    top: 20px;
+    left: 35%;
+    font-size: 16px;
+    border-radius: 10px;
+    color: blue;
+    background-color: white;
+}
+
+
+#addbutton:hover{
+    background-color: yellow;
 }
 
 button {
+    display: flex;
     border-radius: 10px;
     margin: 5px;
-    color: white;
-    background-color: red;
+    color: blue;
+    background-color:white;
+
+
 }
 
 
 button:hover {
-    background-color: black
+    background-color: yellow
 }
 
 
 label {
     font-size: 20px;
-    color: red;
+    color: white;
+    
 }
 
 
+input{
+
+    background-color: white;
+    
+
+}
+
+
+
+#loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:  300px;
+  
+}
+
+
+
+#logOutButton {
+
+    position: fixed;
+    top: 50px;
+    left: 35%;
+    font-size: 16px;
+    border-radius: 10px;
+    color: blue;
+    background-color: white;
+
+
+}
+
+#logOutButton:hover{
+    background-color: yellow;
+}
